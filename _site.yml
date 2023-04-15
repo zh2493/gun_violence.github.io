@@ -22,7 +22,7 @@ navbar:
     - icon: fa-youtube fa-lg
       href: https://www.youtube.com/watch?v=9glfCfrTv-E
     - icon: fa-github fa-lg
-      href: https://github.com/hurricane8978/gun_violence
+      href: https://github.com/zh2493/gun_violence.github.io
 output:
   html_document:
     theme: journal
