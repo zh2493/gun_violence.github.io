@@ -1,0 +1,13 @@
+name: shiny
+title: shiny
+username:
+account: gun-violence-p8105
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5304483
+bundleId: 5354859
+url: https://gun-violence-p8105.shinyapps.io/shiny/
+when: 1639130677.80492
+lastSyncTime: 1639130677.80492
+asMultiple: FALSE
+asStatic: FALSE

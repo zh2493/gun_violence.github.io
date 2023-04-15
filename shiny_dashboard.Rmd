@@ -1,0 +1,118 @@
+---
+title: "Shiny Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+library(plotly)
+library(dplyr)
+library(rjson)
+library(shiny)
+```
+
+```{r}
+#read data
+gun = read_csv("./data/gun violence/mass shootings(all years).csv") %>% 
+  janitor::clean_names() %>% 
+  separate(incident_date, c("date", "month", "year"), sep = "-" ) %>% 
+  mutate(year = as.numeric(year) + 2000) %>% 
+  filter(year != 2017)
+```
+
+Mass Shooting Prevalence
+===================================== 
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+year = c(2018:2021)
+
+sliderInput(
+  "year_select", 
+  "Select year",
+  min = 2018, max = 2021, value = 2020)
+```
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### US map
+
+```{r}
+# for convert state abbreviations to state names
+gun_state = gun %>%
+  group_by(year, state) %>% 
+  summarise(number_of_incident = n(), 
+            sum_killed = sum(number_killed), 
+            sum_injured = sum(number_injured)) %>% 
+  replace(is.na(.), "District of Columbia") 
+
+url <- 'https://eric.clst.org/assets/wiki/uploads/Stuff/gz_2010_us_040_00_20m.json'
+states <- fromJSON(file=url)
+
+
+# plot_geo
+renderPlotly({
+	# map plot setting
+#	geo1 <- list(
+#	scope = "usa",
+#	projection = list(type = "state"),
+#	showlakes = FALSE
+#	)
+	
+	# display value using color intensity
+	gun_state %>% 
+	filter(year == input$year_select) %>% 
+	mutate(text_label = str_c("Number of killed: ", sum_killed, '\nNumber of injured: ', sum_injured)) %>%  
+# url2<- "https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv"
+# df <- read.csv(url2, colClasses=c(fips="character"))
+ 
+plot_ly() %>% 
+   add_trace(
+    type = "choroplethmapbox",
+    featureidkey = "properties.NAME", 
+    geojson = states,
+    locations= ~state,
+    z=~number_of_incident,
+    colorscale="Viridis", 
+    # add text
+		text = ~text_label,
+    marker = list(line = list(
+      width = 0),
+      opacity = 0.75
+    )
+  ) %>% 
+   layout(
+    mapbox = list(
+      style="carto-positron",
+      zoom = 2,
+      center = list(lon = -95.71, lat = 37.09)), 
+    title = "US Map of Mass Shooting",
+		legend = list(x = 100, y = 0.5)) %>%   
+	colorbar(title = "Mass Shooting")
+  })
+```  
+
+### Description
+
+Another map
+===================================== 
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+
+```
+
+Column {.tabset}
+-----------------------------------------------------------------------
+

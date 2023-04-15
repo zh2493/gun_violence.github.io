@@ -1,0 +1,149 @@
+---
+title: "heatmap"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(gridExtra)
+library(leaflet)
+library(dplyr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE}
+historic_NYPD_df = read_csv("./data/NYPD_Shooting_Incident_Data__Historic_.csv") %>%
+  separate('OCCUR_DATE', into=c("month","day","year"),sep = "/") %>%
+  filter(year>=2018)
+year_to_date_df = read_csv("./data/NYPD_Shooting_Incident_Data__Year_To_Date_.csv")%>%
+  separate('OCCUR_DATE', into=c("month","day","year"),sep = "/")
+df = bind_rows(historic_NYPD_df,year_to_date_df)
+```
+
+
+### The change of crime frequency  
+It’s possible that the crime drequency will have changed during the pandemic. We therefore explored whether the crime by time of day changed pre-pandemic versus during the pandemic.\
+To accomplish this, we created a heat map of gun crime frequency by time of day pre (from 2018 to 2019) and during COVID (from 2020 to 2021).
+```{r, warning=FALSE}
+
+df_period_before = df %>%
+  arrange(year,month,day)%>%
+  filter(year <= 2019) %>% 
+  separate(OCCUR_TIME,into = c("hour","minute","second"),sep = ":")%>%
+  mutate(hour=as.numeric(hour))%>%
+  group_by(hour) %>%
+  summarise(count=n(),
+            time="2018-2019")
+
+df_period_after = df %>%
+  arrange(year,month,day)%>%
+  filter(year>= 2020) %>% 
+  separate(OCCUR_TIME,into = c("hour","minute","second"),sep = ":")%>%
+  mutate(hour=as.numeric(hour)) %>% 
+  group_by(hour) %>%
+  summarise(count=n(),
+            time="2020-2021")
+
+df_period =
+  bind_rows(df_period_before,df_period_after) %>% 
+  plot_ly(
+    x = ~hour, y = ~time, z = ~ count, type = "heatmap", colors = "YlGn"
+  ) %>%
+  colorbar(title = "Crimes Number", x = 1.1, y = 0.8)
+
+layout(df_period, title = "Crime frequency during a day", 
+       xaxis = list(title = "Hour", tick0=0, dtick=6), 
+       yaxis = list(title = ' '), 
+       width = 850, height = 400,
+       annotations = 
+ list(x = 1.15, y = -0.15, text = "Source: https://opendata.cityofnewyork.us", 
+      showarrow = F, xref='paper', yref='paper', 
+      xanchor='right', yanchor='auto', xshift=0, yshift=0,
+      font=list(colour = "Cylinders",tag = "A")))
+
+ggsave("heatmap of hours.png")
+```
+*Comments:* \
+Based on the heat map,  it is easier to obtain that gun crime events most happened in the afternoon and evening. Since people are more convenient to commit a crime after dark.\
+We can also that gun crime events most happened in the afternoon and evening. Since people are more convenient to commit a crime after dark. As seen in this plot, there begin  to commit a crime in the afternoon rush hour times of 3-6 PM during COVID as compared to pre-COVID. In addition, there was more gun crimes during COVID.
+
+
+
+### Location of gun crime 
+This map displays the geolocation of gun crime in New York City from 2018 to 2019. The data are interactive and organized by borough.
+```{r, warning=FALSE}
+data_pre = 
+  df %>% 
+  janitor::clean_names() %>% 
+  arrange(year,month,day)%>%
+  filter(year <= 2019) %>%
+  rename(long = longitude, lat = latitude) %>% 
+  group_by(boro) %>% 
+  mutate(crime_number = n(),
+         crime_number = as.numeric(crime_number))
+
+pal = colorNumeric(
+  palette = "Reds",
+  domain =  c(0:1300),
+  na.color = "white")
+
+data_pre %>% 
+  mutate(
+    label = str_c("<b>crime number: ", crime_number, "</b><br>location: ", lon_lat , sep = "") ) %>%
+  leaflet() %>% 
+  addTiles() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircles(lng = ~long, lat = ~lat, weight = 5, stroke = FALSE, radius = ~sqrt(crime_number)*6, popup = ~ label, color = ~pal(crime_number))%>% 
+  addMarkers(clusterOptions = markerClusterOptions(), popup = ~ label) %>% 
+  addLegend("topright", pal = pal, values = ~crime_number,
+    title = "2019-2020 Total Gun Crime",
+    opacity = 1
+  ) %>% 
+   setView(-73.8399986, 40.746739, zoom = 10.5)
+
+
+
+
+
+```
+
+This map displays the geolocation of gun crime in New York City from 2020 to 2021. The data are interactive and organized by borough.
+```{r, warning=FALSE}
+data_during = 
+  df %>% 
+  janitor::clean_names() %>% 
+  arrange(year,month,day)%>%
+  filter(year >= 2020) %>%
+  rename(long = longitude, lat = latitude) %>% 
+  group_by(boro) %>% 
+  mutate(crime_number = n(),
+         crime_number = as.numeric(crime_number))
+
+pal = colorNumeric(
+  palette = "Reds",
+  domain =  c(0:1300),
+  na.color = "white")
+
+data_during %>% 
+  mutate(
+    label = str_c("<b>crime number: ", crime_number, "</b><br>location: ", lon_lat , sep = "") ) %>%
+  leaflet() %>% 
+  addTiles() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircles(lng = ~long, lat = ~lat, weight = 5, stroke = FALSE, radius = ~sqrt(crime_number)*6, popup = ~ label, color = ~pal(crime_number))%>% 
+  addMarkers(clusterOptions = markerClusterOptions(), popup = ~ label) %>% 
+  addLegend("topright", pal = pal, values = ~crime_number,
+    title = "2020-2021 Total Gun Crime",
+    opacity = 1
+  ) %>% 
+ setView(-73.8399986, 40.746739, zoom = 10.5)
+```
+
+#### Year to Year Comparison
+
+There appear to some incremental changes in the geolocation of gun crime from 2018 to 2021, including an increase in clustering in the all the region during covid period(2020-2021), relative to pre covid(2018-2019). Further, more gun crime happened during the covid in all neighborhoods of newyork city.\
+
+#### Neighborhood Clustering
+
+There is a rapid increase of gun crime in Bronx and Queens during covid. 

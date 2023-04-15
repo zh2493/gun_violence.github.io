@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>National Visualization Analysis</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="About.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exploratory Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="National-visualization-analysis.html">National Visualization Analysis</a>
+    </li>
+    <li>
+      <a href="NY-visualization-analysis.html">NY Visualization Analysis</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="time_series_analysis.html">Time Series Analysis Model</a>
+</li>
+<li>
+  <a href="Logistic_muder.html">Regression Model</a>
+</li>
+<li>
+  <a href="Final_project_report-1.html">Report</a>
+</li>
+<li>
+  <a href="https://gun-violence-p8105.shinyapps.io/shiny/">Shiny</a>
+</li>
+<li>
+  <a href="https://www.youtube.com/watch?v=9glfCfrTv-E">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/hurricane8978/gun_violence">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">National Visualization Analysis</h1>
+
+</div>
+
+
+<pre class="r"><code>gun_violence_state_df=
+read_csv(&quot;data/gun violence/mass shootings(all years).csv&quot;) %&gt;% 
+  janitor::clean_names() %&gt;% 
+  select(-incident_id,-address,-operations) %&gt;%
+  separate(incident_date,into=c(&quot;day&quot;,&quot;month&quot;,&quot;year&quot;),sep=&quot;-&quot;) %&gt;% 
+  group_by(state,year) %&gt;%
+  mutate(number_year_killed=sum(number_killed),number_year_injured=sum(number_injured),year=as.numeric(year)) %&gt;% 
+  ungroup() %&gt;% 
+  filter(year!=&quot;17&quot;) %&gt;% 
+  mutate(year=year+2000) %&gt;% 
+  select(-city_or_county)</code></pre>
+<pre class="r"><code>gun_violence_state_df=
+read_csv(&quot;data/gun violence/mass shootings(all years).csv&quot;) %&gt;% 
+  janitor::clean_names() %&gt;% 
+  select(-incident_id,-address,-operations) %&gt;%
+  separate(incident_date,into=c(&quot;day&quot;,&quot;month&quot;,&quot;year&quot;),sep=&quot;-&quot;) %&gt;% 
+  group_by(state,year) %&gt;%
+  mutate(number_year_killed=sum(number_killed),number_year_injured=sum(number_injured),year=as.numeric(year)) %&gt;% 
+  ungroup() %&gt;% 
+  filter(year!=&quot;17&quot;) %&gt;% 
+  mutate(year=year+2000) %&gt;% 
+  select(-city_or_county)</code></pre>
+<pre class="r"><code>year_month_state_massshooting=
+  gun_violence_state_df %&gt;%
+  group_by(year,month,state) %&gt;% 
+  mutate(number_mass_shooting=n()) %&gt;% 
+  group_by(year,month,state,number_mass_shooting) %&gt;% 
+  summarise() %&gt;% 
+  mutate(year_month=str_c(year,month,sep=&quot;&quot;)) %&gt;% 
+  mutate(month=match(month,month.abb)) %&gt;% 
+  group_by(year) %&gt;% 
+  arrange(month) %&gt;% 
+  filter(year_month!=&quot;2021Nov&quot;)
+
+
+year_month_state_massshooting %&gt;% 
+  mutate(year_month=fct_inorder(year_month)) %&gt;% 
+  group_by(year_month) %&gt;% 
+  count() %&gt;% 
+  rename(number_mass_shooting=n) %&gt;% 
+  ggplot(aes(year_month,number_mass_shooting)) + theme_bw(base_size=15 ) +
+  geom_xspline(aes(group=1),color=&quot;lightblue&quot;,size=0.7) + geom_point(color=&quot;lightblue&quot;,size=1.5) +
+  geom_segment(aes(x = 25, y = 10, xend = 25, yend = 31) ,size=0.5,colour = &quot;red&quot;,linetype=&quot;dashed&quot;) + 
+  geom_text(aes(x=25, y= 30, label = &quot;first case of death in US &quot; ), colour = &quot;red&quot;, vjust = -2, hjust = 0.5, size = 3)  + 
+  labs(x = &quot;Month Year &quot;, y = &quot;Mass Shooting&quot;, title = &quot;National Mass Shooting in US &quot;,caption=&quot;(Source:www.gunviolencearchive.org)&quot;) + theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), &quot;inches&quot;),axis.text=element_text(colour=&quot;black&quot;,size=8),axis.title=element_text(size=10)) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1),plot.caption = element_text(size=7)) </code></pre>
+<p><img src="National-visualization-analysis_files/figure-html/unnamed-chunk-3-1.png" width="90%" /></p>
+<p>The plot above shows a fluctutation in national mass shooting number in US from January 2018 to October 2021. From the plot, we can reach two conclusions.First, there is a seasonal pattern in national mass shooting that in every year, basically, number of mass shooting will begin to increase from January and reach its peak in summer and then reduce to bottom. Second, 2020 saw a huge increase in mass shootings compared with previous years, and 2021 is trending a little lower. After data processing in R, there is nationally mass shootings jumped nearly 50% during a pandemic with crippling unemployment, violent protests and idle youth.</p>
+<pre class="r"><code>unemploy_gun &lt;- read_csv(&quot;data/unemployment_gun.csv&quot;)
+UNRATE &lt;- read_csv(&quot;data/unemployment rate/UNRATE.csv&quot;)
+unemploy_gun_IL = unemploy_gun %&gt;% 
+  filter(state == c(&quot;Illinois&quot;)) %&gt;%
+  mutate(time=fct_inorder(time)) %&gt;% 
+  arrange(time) 
+
+UNRATE %&gt;% 
+  ggplot(mapping = aes(x = DATE , y = UNRATE, group= 1)) + theme_bw()+
+  geom_line(color=&quot;red&quot;,size=1) +
+  ylab(&quot;Unemployment Rate&quot;)+
+  xlab(&quot;Time&quot;)+
+  labs(title = &quot; Unemployment Rate in US from 2018 to 2021&quot;,caption=&quot;(Source:opendata.cityofnewyork.us/)&quot;)+
+ theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), &quot;inches&quot;),axis.text=element_text(colour=&quot;black&quot;,size=11),axis.title=element_text(size=15)) + theme(plot.caption = element_text(size=7))</code></pre>
+<p><img src="National-visualization-analysis_files/figure-html/unnamed-chunk-4-1.png" width="90%" /></p>
+<p>With the increase in shootings, we have paid more attention to shootings and became interested in what factors have affected the sharp increase in shootings. First of all, a set of data from major news newspapers enters our field of vision. Every day we can see reports of unemployment rate in the news. It is very interesting that the unemployment rate has been increasing since the outbreak of the new crown epidemic, which has the same trend as the increase in shootings. Therefore, we mapped the changes in the unemployment rate in the United States two years before and after the outbreak of the new crown. From this picture, we can see that two months after the outbreak of the new crown, the unemployment rate began to increase significantly, which is related to the self-quarantine policy that was just started. Later, society began to adapt to the epidemic, and there was a corresponding decline. However, because the epidemic caused structural damage to the economy, the unemployment rate has remained at a high level ever since.</p>
+<pre class="r"><code>mass_shooting_state=
+  gun_violence_state_df %&gt;% 
+  group_by(state) %&gt;%
+  count() %&gt;% 
+  select(number_mass_shooting=n) %&gt;% 
+  arrange(number_mass_shooting) %&gt;% 
+  mutate(Number=number_mass_shooting)
+
+mass_shooting_state %&gt;% 
+  ggplot(aes(x=fct_reorder(state,number_mass_shooting),y=number_mass_shooting,fill=Number)) + geom_bar(stat = &quot;identity&quot;, colour = &quot;black&quot;,position = &quot;dodge&quot;) + theme_bw( ) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1))+ labs(y= &quot;Mass Shooting&quot;, x = &quot;State&quot;,title=&quot;Top States with highest \n number of Mass Shooting&quot;,caption=&quot;(Source:www.gunviolencearchive.org)&quot;) + theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+  size = 15, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), &quot;inches&quot;),axis.text=element_text(colour=&quot;black&quot;,size=3)) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1,size=8),axis.text.y = element_text(size=8),axis.title=element_text(size=10),plot.caption = element_text(size=7)) </code></pre>
+<p><img src="National-visualization-analysis_files/figure-html/unnamed-chunk-5-1.png" width="90%" /></p>
+<p>We arrange 48 states in an ascending way according to the number of mass shooting from 2018 to 2021. As shown in the bar chart, top 8 states are Illinois, California, Texas, Florida, Pennsylvania, Louisiana, New York and Ohio respectively. As one of city in Illinois, Chicago Leads the nation in mass shootings, averaging about one per week.</p>
+<pre class="r"><code>plot_1 = unemploy_gun_IL %&gt;% 
+  ggplot(mapping = aes(x = time , y = value, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab(&quot;Unemployment Rate&quot;)+
+  labs(title = &quot; Unemployment Rate vs Number of \n Mass Shooting in Illinois&quot;)+
+  theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+  size = 13, vjust = 3, hjust = 0.5))
+
+plot_2 = unemploy_gun_IL %&gt;%
+  ggplot(mapping = aes(x = time , y = number_mass_shooting, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab(&quot;Number_mass_shooting&quot;)
+
+fig=ggarrange(plot_1, plot_2,ncol = 1, nrow = 2)
+fig + theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), &quot;inches&quot;),axis.text=element_text(colour=&quot;black&quot;,size=11),axis.title=element_text(size=15)) + theme(plot.caption = element_text(size=7)) +labs(caption=&quot;(Source:www.bls.gov/)&quot;)</code></pre>
+<p><img src="National-visualization-analysis_files/figure-html/unnamed-chunk-6-1.png" width="90%" /></p>
+<p>We chose Illinois for a more in-depth analysis. The top is the change in the unemployment rate in Illinois, and the bottom is the change in the number of shootings. First of all, we can find that the number of shootings has obvious periodic changes, and the number of shootings in the summer is obviously high throughout the year. However, it can still be found that the peak after the epidemic has increased significantly, and the number of shootings during the same period has also increased significantly. At the same time, the unemployment rate has always been higher than the value of the unemployment rate under healthy economic conditions.</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

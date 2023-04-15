@@ -1,0 +1,94 @@
+Project proposal
+================
+
+## The group members (names and UNIs)
+
+Jie Liu(jl5788)  
+Xiaoluo Jiao (xj2278)  
+Ziqian He (zh2493)  
+Yu Si(ys3507)  
+Xinyuan Liu(xl3141)  
+Tianchuan Gao(tg2753)  
+
+## The tentative project title
+
+gun violence trend in US
+
+Relationship between gun crime rate and Covid-19 outbreak in US
+
+## The motivation for this project
+
+-   2020 is an unusual and turbulent year during which the world has
+    struggled with a pandemic for a long time. Since January 15 2020 in
+    which the first case of Covid-19 appeared in the United States, the
+    epidemic has lasted 22 months and when it will end still remains
+    uncertain. Under the influence of it, people’s lifestyle, mental
+    health and some economic indicators like GDP, unemployment rate
+    fluctuate dramatically in America.  
+-   In the meantime, 2020 was a record year for gun violence during
+    which there was a huge increase in gun deaths compared with previous
+    years, and 2021 is trending even higher. Many factors could be
+    playing a role in the rise in gun violence,including the
+    unprecedented surge in gun sales, hampered anti-crime efforts,racial
+    strife spurred by the murder of George Floyd last year as well as
+    pandemic.  
+-   On November 9, a heartbreaking news was reported that a 24-year-old
+    graduate Chinese student was shot and killed in Chicago. Some still
+    remembered another tragic news that Yiran Fan,a 30-year-old
+    University of Chicago PH.D. student from Beijing, who was killed in
+    January 2021 in a mass shooting. The victims of these two accidents
+    are both Chinese students and murdered by gun. This brutal incident
+    was reported on all social platforms and set us thinking deeply. As
+    a team of Chinese, we feel griefful for ourour grief over
+    compatriots’ death andmotivates us to investigate question the
+    safety issues of studying in the U.S.  
+-   Under this circumstance,our group members are inspired to study gun
+    violence and explore the relationship between gun crime rate and
+    Covid-19 outbreak. We hypothesize that the rise of gun crime has a
+    connection with the outbreak of Covid-19 and we propose a further
+    conjecture that deterioration of mental health and decline of
+    unemployment rate are two of factors which impact the increasing gun
+    violence during epidemic.
+
+## The intended final products
+
+-   Our intended final products include a report regarding the
+    association between gun crime rate and the Covid-19 outbreak in U.S,
+    a discussion about the possible contributors underlying this
+    association (mental health status, unemployment rate, etc.), and
+    heat maps for covid cases, mental health status, unemployment rate,
+    and crime rate across different states in the US.  
+-   At the same time, we also plan to study the changes in the number of
+    gun crimes in different areas under the influence of Covid-19 and
+    explore the reasons for these different changes, especially in
+    different areas of New York.
+
+## The anticipated data sources
+
+-   Gun Violence data:  
+    <https://www.gunviolencearchive.org>  
+    <https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8>
+    <https://data.cdc.gov/NCHS/Mental-Health-Care-in-the-Last-4-Weeks/yni7-er2q>
+-   Mental health:  
+    <https://www.cdc.gov/nchs/covid19/pulse/mental-health.htm>  
+    <https://data.cdc.gov/NCHS/Mental-Health-Care-in-the-Last-4-Weeks/yni7-er2q>
+-   Unemployment rate:  
+    <https://beta.bls.gov/dataViewer/view/timeseries>
+
+## The planned analyses / visualizations / coding challenges
+
+Visualize the trend in covid cases and mental health status(maybe with
+anxiety and depression symptoms) and analyze whether the changes in
+covid cases would have any influence on the survey results of mental
+health. We may also create a heat map for covid cases, mental health,
+and gun violence to provide the audience with a general idea of their
+prevalence.
+
+## The planned timeline
+
+| date            | task                                                                   |
+|:----------------|:-----------------------------------------------------------------------|
+| Nov. 20         | Decide the project description                                         |
+| Nov. 20-Dec. 2  | Visualize the data and analysis their association and create a heatmap |
+| Dec. 2-Dec. 10  | Optimize the plot and the webpage and make an explanatory video        |
+| Dec. 11-Dec. 15 | Make brief assessment and prepare discussion                           |

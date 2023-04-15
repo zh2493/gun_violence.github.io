@@ -1,0 +1,27 @@
+---
+title: "About"
+output: html_document
+---
+
+<center>
+<img src="photo1.png" style="width:75%" class="center">
+
+*Image and quote from [_UConn Today_: "Confronting Gun Violence With Scholarship"](https://today.uconn.edu/2021/03/confronting-gun-violence-with-scholarship/)*
+<div style="margin-bottom:30px;">
+</div>
+
+## Motivation
+
+This project is overall motivated by two gun violence incidents in 2021 in which two Chinese students  were killed brutally. As a team of Chinese, we feel grief-stricken for our compatriots’ death and it motivates us to question and investigate the safety issues of studying in the U.S as an international student. Under this circumstance, our group members are inspired to study gun violence and explore the relationship between gun crime rate and Covid-19 outbreak.
+
+## Data Source
+
+[_Gun Violence Archive_](https://www.gunviolencearchive.org) 
+&nbsp;
+&nbsp;
+[_NYC OpenData_](https://opendata.cityofnewyork.us/)
+&nbsp;
+&nbsp;
+[_Bureau of Labor Statistics_](https://www.bls.gov/)
+
+
