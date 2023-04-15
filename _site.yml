@@ -1,0 +1,35 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: About.html
+    - text: "Exploratory Analyses"
+      menu:
+      - text: "National Visualization Analysis"
+        href: National-visualization-analysis.html
+      - text: "NY Visualization Analysis"
+        href: NY-visualization-analysis.html
+    - text: "Time Series Analysis Model"
+      href: time_series_analysis.html       
+    - text: "Regression Model"
+      href: Logistic_muder.html
+    - text: "Report"
+      href: Final_project_report-1.html     
+    - text: "Shiny"
+      href: https://gun-violence-p8105.shinyapps.io/shiny/ 
+    - icon: fa-youtube fa-lg
+      href: https://www.youtube.com/watch?v=9glfCfrTv-E
+    - icon: fa-github fa-lg
+      href: https://github.com/hurricane8978/gun_violence
+output:
+  html_document:
+    theme: journal
+    
+    
+    
+    
+    
+
+  
