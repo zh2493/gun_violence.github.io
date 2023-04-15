@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Yu Si" />
+
+<meta name="date" content="2021-11-30" />
+
+<title>unemploy_gun</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="About.html">About</a>
+</li>
+<li>
+  <a href="exploratory-analysis.html">Exploratory Analyses</a>
+</li>
+<li>
+  <a href="time_series_analysis.html">Time Series Analysis Model</a>
+</li>
+<li class="dropdown-header">Regression Model</li>
+<li>
+  <a href="https://gun-violence-p8105.shinyapps.io/shiny/">Shiny</a>
+</li>
+<li>
+  <a>
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a>
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a>
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">unemploy_gun</h1>
+<h4 class="author">Yu Si</h4>
+<h4 class="date">11/30/2021</h4>
+
+</div>
+
+
+<pre class="r"><code>library(readr)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.4     ✓ stringr 1.4.0
+## ✓ tidyr   1.1.3     ✓ forcats 0.5.1
+## ✓ purrr   0.3.4</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(ggalt)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2</code></pre>
+<pre class="r"><code>library(ggforce)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>library(ggpubr)</code></pre>
+<pre class="r"><code>unemploy_gun &lt;- read_csv(&quot;data/unemployment_gun.csv&quot;)</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1</code></pre>
+<pre><code>## Rows: 911 Columns: 7</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (3): state, month, time
+## dbl (4): ...1, value, year, number_mass_shooting</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>UNRATE &lt;- read_csv(&quot;data/unemployment rate/UNRATE.csv&quot;)</code></pre>
+<pre><code>## Rows: 47 Columns: 2</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## dbl  (1): UNRATE
+## date (1): DATE</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>unemploy_gun_IL = unemploy_gun %&gt;% 
+  filter(state == c(&quot;Illinois&quot;)) %&gt;%
+  mutate(time=fct_inorder(time)) %&gt;% 
+  arrange(time) 
+
+plot_1 = unemploy_gun_IL %&gt;% 
+  ggplot(mapping = aes(x = time , y = value, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab(&quot;Unemployment Rate&quot;)+
+  labs(title = &quot; Unemployment Rate vs Number of \n Mass Shooting in Illinois&quot;)+
+  theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+  size = 13, vjust = 3, hjust = 0.5))
+
+
+plot_2 = unemploy_gun_IL %&gt;%
+  ggplot(mapping = aes(x = time , y = number_mass_shooting, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab(&quot;Number_mass_shooting&quot;)
+
+
+
+
+figure  &lt;- ggarrange(plot_1, plot_2,
+                    ncol = 1, nrow = 2)
+
+figure</code></pre>
+<p><img src="code_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code># We chose Minnesota for a more in-depth analysis. The top is the change in the unemployment rate in Minnesota, and the bottom is the change in the number of shootings. First of all, we can find that the number of shootings has obvious periodic changes, and the number of shootings in the summer is obviously high throughout the year. However, it can still be found that the peak after the epidemic has increased significantly, and the number of shootings during the same period has also increased significantly. At the same time, the unemployment rate has always been higher than the value of the unemployment rate under healthy economic conditions. Therefore, we infer that the two variables are still correlated.
+
+plot_us = UNRATE %&gt;% 
+  ggplot(mapping = aes(x = DATE , y = UNRATE, group= 1)) + theme_bw()+
+  geom_line() +
+  ylab(&quot;Unemployment Rate&quot;)+
+  xlab(&quot;Time&quot;)+
+  labs(title = &quot; Unemployment Rate in US&quot;)+
+  theme( plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
+  size = 13, vjust = 3, hjust = 0.5))
+
+plot_us</code></pre>
+<p><img src="code_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code># With the increase in shootings, we have paid more attention to shootings and became interested in what factors have affected the sharp increase in shootings. First of all, a set of data from major news newspapers enters our field of vision. Every day we can see reports of unemployment rate in the news. It is very interesting that the unemployment rate has been increasing since the outbreak of the new crown epidemic, which has the same trend as the increase in shootings. Therefore, we mapped the changes in the unemployment rate in the United States two years before and after the outbreak of the new crown. From this picture, we can see that two months after the outbreak of the new crown, the unemployment rate began to increase significantly, which is related to the self-quarantine policy that was just started. Later, society began to adapt to the epidemic, and there was a corresponding decline. However, because the epidemic caused structural damage to the economy, the unemployment rate has remained at a high level ever since.
+
+
+# 
+# 
+# ggplot(mpg, aes(displ, hwy)) +
+#   geom_point() +
+#   scale_y_continuous(
+#    &quot;mpg (US)&quot;,
+#     sec.axis = sec_axis(~ . * 1.20, name =&quot;mpg (UK)&quot;)
+#   )
+# ggplot()
+# unemploy_final = 
+#   unemploy_state %&gt;% 
+#   filter(year!=2017)%&gt;% 
+#   mutate(month=str_replace(month,&quot; &quot;,&quot;&quot;))
+# 
+# 
+# year_month_state_massshooting &lt;- read_csv(&quot;data/year_month_state_massshooting.csv&quot;) %&gt;% 
+#   select(-...1) %&gt;% 
+#   mutate(year = year + 2000) 
+# 
+# 
+# unemploy_gun = left_join(year_month_state_massshooting,unemploy_final, by = c(&quot;month&quot; = &quot;month&quot;, &quot;state&quot;= &quot;state&quot;, &quot;year&quot; = &quot;year&quot;) ) %&gt;% 
+#   drop_na()
+# write.csv(unemploy_gun, &quot;data/unemploy_gun.csv&quot;)
+# 
+# unemploy_gun_IL = unemploy_gun %&gt;% 
+#   filter(state == c(&quot;Illinois&quot;)
+# 
+# unemploy_gun_FIVE = unemploy_gun %&gt;% 
+#   filter(state == c(&quot;Illinois&quot;, &quot;New York&quot;, &quot;California&quot;, &quot;Texas&quot;, &quot;Ohio&quot;, &quot;Pennsylvania&quot;))
+#                   
+# unemploy_gun_NY = unemploy_gun %&gt;% 
+#   filter(state == &quot;New York&quot;)
+# 
+# unemploy_gun_FIVE %&gt;%
+#   ggplot(aes(x = value, y = number_mass_shooting)) + 
+#   geom_point(aes(color = state), alpha = .5)+
+#   theme(legend.position = &quot;bottom&quot;)
+# 
+# ggplot(unemploy_gun_IL, aes(x = value, y = number_mass_shooting)) + 
+#   geom_point(aes(color = state), alpha = .5)+
+#   theme(legend.position = &quot;bottom&quot;)
+# lm(number_mass_shooting~value,unemploy_gun_IL)
+# 
+# ggplot(unemploy_gun_NY, aes(x = value, y = number_mass_shooting)) + 
+#   geom_point(aes(color = state), alpha = .5)+
+#   geom_smooth(method = &quot;lm&quot;, se = FALSE)+
+#   theme(legend.position = &quot;bottom&quot;)
+# lm(number_mass_shooting~value,unemploy_gun_NY)
+# 
+# ggplot(unemploy_gun_NY, aes(x = value, y = number_mass_shooting)) + 
+#   geom_point(aes(color = state), alpha = .5)+
+#   geom_abline()+
+#   theme(legend.position = &quot;bottom&quot;)
+# lm(number_mass_shooting~value,unemploy_gun_NY)
+# 
+# ggplot(unemploy_gun, aes(x = value, y = number_mass_shooting)) + 
+#   geom_point(aes(color = state), alpha = .5)+
+#   theme(legend.position = &quot;bottom&quot;)</code></pre>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

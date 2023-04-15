@@ -1,0 +1,912 @@
+"","year","month","state","number_mass_shooting"
+"1",18,"Apr","Alabama",1
+"2",18,"Apr","Arkansas",1
+"3",18,"Apr","California",2
+"4",18,"Apr","District of Columbia",1
+"5",18,"Apr","Florida",4
+"6",18,"Apr","Louisiana",3
+"7",18,"Apr","Michigan",2
+"8",18,"Apr","Missouri",1
+"9",18,"Apr","North Carolina",4
+"10",18,"Apr","Pennsylvania",1
+"11",18,"Apr","Tennessee",2
+"12",18,"Apr","Texas",1
+"13",18,"Apr","Virginia",1
+"14",18,"Apr","Washington",1
+"15",18,"Aug","Arkansas",1
+"16",18,"Aug","California",2
+"17",18,"Aug","Colorado",2
+"18",18,"Aug","Florida",1
+"19",18,"Aug","Illinois",8
+"20",18,"Aug","Maryland",1
+"21",18,"Aug","Michigan",1
+"22",18,"Aug","Missouri",3
+"23",18,"Aug","Nevada",1
+"24",18,"Aug","New Jersey",1
+"25",18,"Aug","New York",1
+"26",18,"Aug","Ohio",2
+"27",18,"Aug","Pennsylvania",4
+"28",18,"Aug","South Carolina",1
+"29",18,"Aug","Tennessee",3
+"30",18,"Aug","Virginia",1
+"31",18,"Aug","Wisconsin",1
+"32",18,"Dec","California",1
+"33",18,"Dec","Colorado",1
+"34",18,"Dec","Florida",2
+"35",18,"Dec","Louisiana",2
+"36",18,"Dec","Maryland",1
+"37",18,"Dec","Missouri",2
+"38",18,"Dec","Nevada",1
+"39",18,"Dec","New York",1
+"40",18,"Dec","Ohio",2
+"41",18,"Dec","Pennsylvania",1
+"42",18,"Dec","Wisconsin",1
+"43",18,"Feb","Colorado",1
+"44",18,"Feb","Connecticut",1
+"45",18,"Feb","Florida",3
+"46",18,"Feb","Kansas",1
+"47",18,"Feb","Kentucky",1
+"48",18,"Feb","Louisiana",1
+"49",18,"Feb","Michigan",2
+"50",18,"Feb","Ohio",1
+"51",18,"Feb","Oklahoma",1
+"52",18,"Feb","Tennessee",1
+"53",18,"Feb","Texas",1
+"54",18,"Jan","Alabama",4
+"55",18,"Jan","Arkansas",1
+"56",18,"Jan","California",1
+"57",18,"Jan","District of Columbia",2
+"58",18,"Jan","Florida",3
+"59",18,"Jan","Illinois",1
+"60",18,"Jan","Indiana",1
+"61",18,"Jan","Kentucky",2
+"62",18,"Jan","Mississippi",1
+"63",18,"Jan","Missouri",2
+"64",18,"Jan","Pennsylvania",3
+"65",18,"Jan","Tennessee",1
+"66",18,"Jul","Alabama",2
+"67",18,"Jul","Arizona",1
+"68",18,"Jul","California",4
+"69",18,"Jul","Colorado",1
+"70",18,"Jul","Delaware",1
+"71",18,"Jul","District of Columbia",2
+"72",18,"Jul","Florida",3
+"73",18,"Jul","Georgia",2
+"74",18,"Jul","Illinois",5
+"75",18,"Jul","Louisiana",2
+"76",18,"Jul","Maryland",2
+"77",18,"Jul","Michigan",1
+"78",18,"Jul","Missouri",1
+"79",18,"Jul","New Jersey",1
+"80",18,"Jul","New York",3
+"81",18,"Jul","Ohio",2
+"82",18,"Jul","Oklahoma",1
+"83",18,"Jul","Pennsylvania",2
+"84",18,"Jul","Tennessee",3
+"85",18,"Jul","Texas",3
+"86",18,"Jul","Virginia",2
+"87",18,"Jul","Washington",1
+"88",18,"Jun","Alabama",2
+"89",18,"Jun","California",6
+"90",18,"Jun","Colorado",1
+"91",18,"Jun","Connecticut",1
+"92",18,"Jun","Florida",6
+"93",18,"Jun","Georgia",2
+"94",18,"Jun","Illinois",10
+"95",18,"Jun","Indiana",2
+"96",18,"Jun","Kansas",1
+"97",18,"Jun","Louisiana",1
+"98",18,"Jun","Maryland",2
+"99",18,"Jun","Massachusetts",1
+"100",18,"Jun","Nebraska",1
+"101",18,"Jun","New Jersey",2
+"102",18,"Jun","New York",3
+"103",18,"Jun","North Carolina",3
+"104",18,"Jun","Ohio",1
+"105",18,"Jun","Pennsylvania",3
+"106",18,"Jun","Tennessee",1
+"107",18,"Jun","Texas",2
+"108",18,"Mar","Alabama",1
+"109",18,"Mar","California",2
+"110",18,"Mar","Florida",2
+"111",18,"Mar","Illinois",3
+"112",18,"Mar","Indiana",1
+"113",18,"Mar","Kentucky",1
+"114",18,"Mar","Michigan",1
+"115",18,"Mar","New Jersey",2
+"116",18,"Mar","New York",1
+"117",18,"Mar","North Carolina",1
+"118",18,"Mar","Texas",1
+"119",18,"Mar","Utah",1
+"120",18,"May","California",3
+"121",18,"May","Colorado",1
+"122",18,"May","Georgia",1
+"123",18,"May","Illinois",2
+"124",18,"May","Indiana",1
+"125",18,"May","Louisiana",2
+"126",18,"May","Maryland",1
+"127",18,"May","Minnesota",1
+"128",18,"May","Mississippi",2
+"129",18,"May","Missouri",2
+"130",18,"May","Nebraska",2
+"131",18,"May","New Jersey",1
+"132",18,"May","New York",1
+"133",18,"May","North Carolina",1
+"134",18,"May","Ohio",1
+"135",18,"May","Oklahoma",2
+"136",18,"May","South Carolina",1
+"137",18,"May","Tennessee",1
+"138",18,"May","Texas",2
+"139",18,"Nov","Alabama",1
+"140",18,"Nov","Arizona",1
+"141",18,"Nov","Arkansas",1
+"142",18,"Nov","California",4
+"143",18,"Nov","Colorado",1
+"144",18,"Nov","Florida",2
+"145",18,"Nov","Indiana",1
+"146",18,"Nov","Louisiana",1
+"147",18,"Nov","Minnesota",1
+"148",18,"Nov","Missouri",2
+"149",18,"Nov","New Mexico",1
+"150",18,"Nov","New York",1
+"151",18,"Nov","North Carolina",1
+"152",18,"Nov","Pennsylvania",1
+"153",18,"Nov","Tennessee",1
+"154",18,"Nov","Texas",1
+"155",18,"Oct","Alabama",1
+"156",18,"Oct","Arkansas",1
+"157",18,"Oct","California",5
+"158",18,"Oct","Florida",1
+"159",18,"Oct","Georgia",2
+"160",18,"Oct","Illinois",3
+"161",18,"Oct","Michigan",1
+"162",18,"Oct","Missouri",1
+"163",18,"Oct","Nevada",2
+"164",18,"Oct","New Jersey",1
+"165",18,"Oct","New Mexico",1
+"166",18,"Oct","Oklahoma",1
+"167",18,"Oct","Pennsylvania",2
+"168",18,"Oct","South Carolina",2
+"169",18,"Oct","Tennessee",2
+"170",18,"Oct","Texas",3
+"171",18,"Oct","Washington",1
+"172",18,"Sep","Alabama",2
+"173",18,"Sep","Arkansas",1
+"174",18,"Sep","California",5
+"175",18,"Sep","District of Columbia",1
+"176",18,"Sep","Florida",3
+"177",18,"Sep","Georgia",1
+"178",18,"Sep","Illinois",3
+"179",18,"Sep","Louisiana",1
+"180",18,"Sep","Maryland",2
+"181",18,"Sep","Minnesota",1
+"182",18,"Sep","New Jersey",2
+"183",18,"Sep","New York",2
+"184",18,"Sep","Ohio",2
+"185",18,"Sep","Pennsylvania",2
+"186",18,"Sep","Tennessee",3
+"187",18,"Sep","Texas",1
+"188",18,"Sep","Wisconsin",2
+"189",19,"Apr","Alabama",1
+"190",19,"Apr","Arizona",1
+"191",19,"Apr","California",6
+"192",19,"Apr","Delaware",1
+"193",19,"Apr","Florida",3
+"194",19,"Apr","Georgia",1
+"195",19,"Apr","Illinois",2
+"196",19,"Apr","Indiana",1
+"197",19,"Apr","Kansas",1
+"198",19,"Apr","Kentucky",2
+"199",19,"Apr","Louisiana",1
+"200",19,"Apr","Maryland",3
+"201",19,"Apr","Mississippi",2
+"202",19,"Apr","Missouri",1
+"203",19,"Apr","North Carolina",2
+"204",19,"Apr","Ohio",1
+"205",19,"Apr","Pennsylvania",1
+"206",19,"Apr","Tennessee",2
+"207",19,"Aug","Alabama",2
+"208",19,"Aug","California",2
+"209",19,"Aug","Georgia",2
+"210",19,"Aug","Illinois",6
+"211",19,"Aug","Louisiana",1
+"212",19,"Aug","Maryland",5
+"213",19,"Aug","Massachusetts",1
+"214",19,"Aug","Mississippi",1
+"215",19,"Aug","Missouri",3
+"216",19,"Aug","New Mexico",1
+"217",19,"Aug","New York",1
+"218",19,"Aug","North Carolina",1
+"219",19,"Aug","Ohio",1
+"220",19,"Aug","Pennsylvania",3
+"221",19,"Aug","South Carolina",2
+"222",19,"Aug","Tennessee",1
+"223",19,"Aug","Texas",4
+"224",19,"Aug","Virginia",2
+"225",19,"Aug","Washington",1
+"226",19,"Dec","Alabama",2
+"227",19,"Dec","California",4
+"228",19,"Dec","Florida",2
+"229",19,"Dec","Georgia",2
+"230",19,"Dec","Illinois",4
+"231",19,"Dec","Iowa",1
+"232",19,"Dec","Louisiana",6
+"233",19,"Dec","Maryland",1
+"234",19,"Dec","Michigan",1
+"235",19,"Dec","Minnesota",1
+"236",19,"Dec","Mississippi",1
+"237",19,"Dec","Missouri",1
+"238",19,"Dec","Montana",1
+"239",19,"Dec","New Jersey",1
+"240",19,"Dec","New York",1
+"241",19,"Dec","North Carolina",1
+"242",19,"Dec","Texas",3
+"243",19,"Dec","Virginia",1
+"244",19,"Feb","Alabama",1
+"245",19,"Feb","California",3
+"246",19,"Feb","District of Columbia",1
+"247",19,"Feb","Illinois",2
+"248",19,"Feb","Indiana",1
+"249",19,"Feb","Kentucky",1
+"250",19,"Feb","Louisiana",2
+"251",19,"Feb","Maryland",1
+"252",19,"Feb","Mississippi",1
+"253",19,"Feb","New York",1
+"254",19,"Feb","Tennessee",1
+"255",19,"Feb","Texas",4
+"256",19,"Feb","Virginia",1
+"257",19,"Jan","Alabama",1
+"258",19,"Jan","Arizona",2
+"259",19,"Jan","Arkansas",2
+"260",19,"Jan","California",2
+"261",19,"Jan","Florida",5
+"262",19,"Jan","Georgia",2
+"263",19,"Jan","Illinois",1
+"264",19,"Jan","Indiana",1
+"265",19,"Jan","Kentucky",1
+"266",19,"Jan","Louisiana",1
+"267",19,"Jan","New Jersey",1
+"268",19,"Jan","New Mexico",1
+"269",19,"Jan","Pennsylvania",2
+"270",19,"Jan","South Carolina",2
+"271",19,"Jan","Texas",2
+"272",19,"Jan","Virginia",1
+"273",19,"Jul","California",5
+"274",19,"Jul","District of Columbia",3
+"275",19,"Jul","Georgia",1
+"276",19,"Jul","Illinois",11
+"277",19,"Jul","Kansas",1
+"278",19,"Jul","Maryland",2
+"279",19,"Jul","Massachusetts",1
+"280",19,"Jul","Michigan",1
+"281",19,"Jul","Missouri",3
+"282",19,"Jul","Nevada",1
+"283",19,"Jul","New Mexico",1
+"284",19,"Jul","New York",2
+"285",19,"Jul","Ohio",1
+"286",19,"Jul","Pennsylvania",3
+"287",19,"Jul","Texas",4
+"288",19,"Jul","Washington",1
+"289",19,"Jul","Wisconsin",1
+"290",19,"Jun","California",7
+"291",19,"Jun","Colorado",1
+"292",19,"Jun","Connecticut",2
+"293",19,"Jun","Georgia",5
+"294",19,"Jun","Illinois",6
+"295",19,"Jun","Indiana",1
+"296",19,"Jun","Iowa",1
+"297",19,"Jun","Kentucky",1
+"298",19,"Jun","Louisiana",3
+"299",19,"Jun","Maryland",1
+"300",19,"Jun","Michigan",1
+"301",19,"Jun","Minnesota",1
+"302",19,"Jun","New Jersey",3
+"303",19,"Jun","New York",2
+"304",19,"Jun","North Carolina",1
+"305",19,"Jun","Ohio",3
+"306",19,"Jun","Pennsylvania",3
+"307",19,"Jun","South Carolina",2
+"308",19,"Jun","Tennessee",2
+"309",19,"Jun","Texas",3
+"310",19,"Jun","Virginia",2
+"311",19,"Jun","Washington",1
+"312",19,"Jun","Wisconsin",1
+"313",19,"Mar","Alabama",1
+"314",19,"Mar","Arizona",2
+"315",19,"Mar","Arkansas",1
+"316",19,"Mar","California",2
+"317",19,"Mar","Colorado",1
+"318",19,"Mar","Georgia",3
+"319",19,"Mar","Illinois",2
+"320",19,"Mar","Louisiana",1
+"321",19,"Mar","Maryland",1
+"322",19,"Mar","Montana",1
+"323",19,"Mar","Nevada",2
+"324",19,"Mar","New Jersey",2
+"325",19,"Mar","South Carolina",1
+"326",19,"May","Alabama",1
+"327",19,"May","California",7
+"328",19,"May","Colorado",1
+"329",19,"May","Delaware",1
+"330",19,"May","District of Columbia",2
+"331",19,"May","Illinois",1
+"332",19,"May","Indiana",3
+"333",19,"May","Iowa",1
+"334",19,"May","Louisiana",4
+"335",19,"May","Maryland",3
+"336",19,"May","Massachusetts",1
+"337",19,"May","Michigan",1
+"338",19,"May","Mississippi",1
+"339",19,"May","Missouri",4
+"340",19,"May","Nebraska",1
+"341",19,"May","New Jersey",3
+"342",19,"May","North Carolina",1
+"343",19,"May","Ohio",2
+"344",19,"May","Oklahoma",2
+"345",19,"May","Oregon",1
+"346",19,"May","Pennsylvania",2
+"347",19,"May","Texas",2
+"348",19,"May","Virginia",3
+"349",19,"Nov","Alabama",1
+"350",19,"Nov","Arizona",1
+"351",19,"Nov","Arkansas",2
+"352",19,"Nov","California",7
+"353",19,"Nov","Florida",2
+"354",19,"Nov","Georgia",2
+"355",19,"Nov","Louisiana",3
+"356",19,"Nov","Michigan",2
+"357",19,"Nov","Missouri",1
+"358",19,"Nov","New Jersey",1
+"359",19,"Nov","New York",1
+"360",19,"Nov","North Carolina",1
+"361",19,"Nov","Ohio",2
+"362",19,"Nov","Tennessee",1
+"363",19,"Nov","Texas",4
+"364",19,"Nov","Washington",1
+"365",19,"Oct","California",2
+"366",19,"Oct","Colorado",1
+"367",19,"Oct","Florida",1
+"368",19,"Oct","Illinois",1
+"369",19,"Oct","Indiana",1
+"370",19,"Oct","Kansas",1
+"371",19,"Oct","Maryland",4
+"372",19,"Oct","Massachusetts",2
+"373",19,"Oct","Michigan",3
+"374",19,"Oct","Missouri",3
+"375",19,"Oct","New York",1
+"376",19,"Oct","North Carolina",1
+"377",19,"Oct","Ohio",2
+"378",19,"Oct","Oklahoma",2
+"379",19,"Oct","Pennsylvania",5
+"380",19,"Oct","South Carolina",1
+"381",19,"Oct","Texas",3
+"382",19,"Sep","Alabama",2
+"383",19,"Sep","California",2
+"384",19,"Sep","Connecticut",1
+"385",19,"Sep","District of Columbia",1
+"386",19,"Sep","Florida",2
+"387",19,"Sep","Georgia",1
+"388",19,"Sep","Illinois",5
+"389",19,"Sep","Indiana",2
+"390",19,"Sep","Kansas",1
+"391",19,"Sep","Louisiana",4
+"392",19,"Sep","Missouri",2
+"393",19,"Sep","New Mexico",2
+"394",19,"Sep","North Carolina",3
+"395",19,"Sep","Ohio",2
+"396",19,"Sep","South Carolina",2
+"397",19,"Sep","Texas",1
+"398",19,"Sep","Wisconsin",1
+"399",19,"Sep","Wyoming",1
+"400",20,"Apr","Alaska",1
+"401",20,"Apr","California",2
+"402",20,"Apr","Florida",2
+"403",20,"Apr","Illinois",1
+"404",20,"Apr","Indiana",2
+"405",20,"Apr","Kentucky",1
+"406",20,"Apr","Maryland",1
+"407",20,"Apr","Massachusetts",1
+"408",20,"Apr","Michigan",2
+"409",20,"Apr","Mississippi",1
+"410",20,"Apr","New York",2
+"411",20,"Apr","North Carolina",2
+"412",20,"Apr","Pennsylvania",1
+"413",20,"Apr","South Carolina",2
+"414",20,"Apr","Tennessee",1
+"415",20,"Apr","Texas",3
+"416",20,"Apr","Wisconsin",1
+"417",20,"Aug","Alabama",4
+"418",20,"Aug","Arkansas",1
+"419",20,"Aug","California",4
+"420",20,"Aug","Colorado",4
+"421",20,"Aug","Connecticut",2
+"422",20,"Aug","District of Columbia",2
+"423",20,"Aug","Florida",2
+"424",20,"Aug","Illinois",10
+"425",20,"Aug","Kentucky",4
+"426",20,"Aug","Massachusetts",1
+"427",20,"Aug","Michigan",3
+"428",20,"Aug","Minnesota",1
+"429",20,"Aug","Mississippi",1
+"430",20,"Aug","Missouri",1
+"431",20,"Aug","Nevada",1
+"432",20,"Aug","New Jersey",2
+"433",20,"Aug","New York",9
+"434",20,"Aug","Ohio",6
+"435",20,"Aug","Oklahoma",1
+"436",20,"Aug","Oregon",1
+"437",20,"Aug","Pennsylvania",9
+"438",20,"Aug","South Carolina",1
+"439",20,"Aug","Tennessee",1
+"440",20,"Aug","Texas",5
+"441",20,"Aug","Virginia",2
+"442",20,"Aug","Wisconsin",1
+"443",20,"Dec","Arkansas",1
+"444",20,"Dec","California",2
+"445",20,"Dec","Connecticut",1
+"446",20,"Dec","Florida",4
+"447",20,"Dec","Georgia",1
+"448",20,"Dec","Illinois",3
+"449",20,"Dec","Indiana",1
+"450",20,"Dec","Louisiana",1
+"451",20,"Dec","Maryland",1
+"452",20,"Dec","Massachusetts",1
+"453",20,"Dec","Mississippi",2
+"454",20,"Dec","New York",2
+"455",20,"Dec","North Carolina",1
+"456",20,"Dec","Oregon",1
+"457",20,"Dec","Pennsylvania",1
+"458",20,"Dec","Texas",1
+"459",20,"Dec","West Virginia",2
+"460",20,"Feb","California",1
+"461",20,"Feb","Colorado",1
+"462",20,"Feb","Connecticut",1
+"463",20,"Feb","Delaware",1
+"464",20,"Feb","Florida",1
+"465",20,"Feb","Idaho",1
+"466",20,"Feb","Illinois",2
+"467",20,"Feb","Indiana",1
+"468",20,"Feb","Louisiana",1
+"469",20,"Feb","Maine",1
+"470",20,"Feb","Mississippi",2
+"471",20,"Feb","Missouri",1
+"472",20,"Feb","North Carolina",2
+"473",20,"Feb","Tennessee",1
+"474",20,"Feb","Texas",2
+"475",20,"Feb","Wisconsin",1
+"476",20,"Jan","California",2
+"477",20,"Jan","Colorado",1
+"478",20,"Jan","Connecticut",1
+"479",20,"Jan","Florida",2
+"480",20,"Jan","Georgia",1
+"481",20,"Jan","Illinois",1
+"482",20,"Jan","Louisiana",1
+"483",20,"Jan","Mississippi",1
+"484",20,"Jan","Missouri",3
+"485",20,"Jan","New York",2
+"486",20,"Jan","North Carolina",2
+"487",20,"Jan","Ohio",1
+"488",20,"Jan","South Carolina",1
+"489",20,"Jan","Tennessee",1
+"490",20,"Jan","Texas",2
+"491",20,"Jan","Utah",1
+"492",20,"Jan","Washington",1
+"493",20,"Jan","West Virginia",1
+"494",20,"Jul","Alabama",1
+"495",20,"Jul","Arkansas",2
+"496",20,"Jul","California",3
+"497",20,"Jul","Colorado",2
+"498",20,"Jul","Delaware",2
+"499",20,"Jul","District of Columbia",1
+"500",20,"Jul","Florida",5
+"501",20,"Jul","Georgia",3
+"502",20,"Jul","Illinois",15
+"503",20,"Jul","Iowa",1
+"504",20,"Jul","Kentucky",2
+"505",20,"Jul","Louisiana",4
+"506",20,"Jul","Maryland",3
+"507",20,"Jul","Massachusetts",2
+"508",20,"Jul","Michigan",9
+"509",20,"Jul","Mississippi",3
+"510",20,"Jul","Missouri",3
+"511",20,"Jul","Nebraska",1
+"512",20,"Jul","New Jersey",2
+"513",20,"Jul","New York",5
+"514",20,"Jul","North Carolina",2
+"515",20,"Jul","Ohio",2
+"516",20,"Jul","Pennsylvania",2
+"517",20,"Jul","South Carolina",2
+"518",20,"Jul","Tennessee",1
+"519",20,"Jul","Texas",3
+"520",20,"Jul","Virginia",4
+"521",20,"Jul","Washington",2
+"522",20,"Jul","Wisconsin",2
+"523",20,"Jun","Alabama",3
+"524",20,"Jun","Arizona",1
+"525",20,"Jun","Arkansas",4
+"526",20,"Jun","California",9
+"527",20,"Jun","Colorado",2
+"528",20,"Jun","Connecticut",1
+"529",20,"Jun","District of Columbia",2
+"530",20,"Jun","Florida",1
+"531",20,"Jun","Georgia",2
+"532",20,"Jun","Illinois",13
+"533",20,"Jun","Iowa",2
+"534",20,"Jun","Kansas",1
+"535",20,"Jun","Kentucky",1
+"536",20,"Jun","Louisiana",4
+"537",20,"Jun","Maryland",1
+"538",20,"Jun","Massachusetts",1
+"539",20,"Jun","Michigan",2
+"540",20,"Jun","Minnesota",4
+"541",20,"Jun","Mississippi",1
+"542",20,"Jun","Missouri",4
+"543",20,"Jun","New Jersey",1
+"544",20,"Jun","New York",10
+"545",20,"Jun","North Carolina",3
+"546",20,"Jun","Ohio",4
+"547",20,"Jun","Pennsylvania",4
+"548",20,"Jun","South Dakota",1
+"549",20,"Jun","Tennessee",3
+"550",20,"Jun","Texas",5
+"551",20,"Jun","Virginia",1
+"552",20,"Jun","Wisconsin",3
+"553",20,"Mar","California",2
+"554",20,"Mar","District of Columbia",1
+"555",20,"Mar","Florida",1
+"556",20,"Mar","Georgia",2
+"557",20,"Mar","Illinois",3
+"558",20,"Mar","Louisiana",1
+"559",20,"Mar","Maryland",3
+"560",20,"Mar","Michigan",1
+"561",20,"Mar","Missouri",2
+"562",20,"Mar","New Mexico",2
+"563",20,"Mar","North Carolina",1
+"564",20,"Mar","Ohio",1
+"565",20,"Mar","Pennsylvania",2
+"566",20,"Mar","South Carolina",1
+"567",20,"Mar","Texas",1
+"568",20,"Mar","Virginia",1
+"569",20,"May","Alabama",2
+"570",20,"May","California",3
+"571",20,"May","District of Columbia",1
+"572",20,"May","Florida",5
+"573",20,"May","Georgia",1
+"574",20,"May","Illinois",6
+"575",20,"May","Kentucky",2
+"576",20,"May","Louisiana",3
+"577",20,"May","Maryland",2
+"578",20,"May","Massachusetts",1
+"579",20,"May","Michigan",1
+"580",20,"May","Mississippi",3
+"581",20,"May","Missouri",2
+"582",20,"May","New Jersey",1
+"583",20,"May","New Mexico",1
+"584",20,"May","North Carolina",2
+"585",20,"May","Ohio",3
+"586",20,"May","Pennsylvania",6
+"587",20,"May","South Carolina",5
+"588",20,"May","Tennessee",3
+"589",20,"May","Texas",6
+"590",20,"May","Virginia",1
+"591",20,"Nov","Alaska",1
+"592",20,"Nov","Arizona",2
+"593",20,"Nov","California",1
+"594",20,"Nov","Florida",4
+"595",20,"Nov","Georgia",2
+"596",20,"Nov","Illinois",4
+"597",20,"Nov","Indiana",1
+"598",20,"Nov","Kansas",1
+"599",20,"Nov","Louisiana",4
+"600",20,"Nov","Mississippi",1
+"601",20,"Nov","Missouri",2
+"602",20,"Nov","Nebraska",1
+"603",20,"Nov","Nevada",2
+"604",20,"Nov","New Jersey",2
+"605",20,"Nov","New York",1
+"606",20,"Nov","North Carolina",2
+"607",20,"Nov","Ohio",4
+"608",20,"Nov","Oklahoma",1
+"609",20,"Nov","South Carolina",6
+"610",20,"Nov","Tennessee",3
+"611",20,"Nov","Texas",2
+"612",20,"Nov","Virginia",1
+"613",20,"Nov","Wisconsin",1
+"614",20,"Oct","Alaska",1
+"615",20,"Oct","Arizona",1
+"616",20,"Oct","California",6
+"617",20,"Oct","District of Columbia",1
+"618",20,"Oct","Florida",3
+"619",20,"Oct","Georgia",2
+"620",20,"Oct","Illinois",3
+"621",20,"Oct","Indiana",1
+"622",20,"Oct","Louisiana",3
+"623",20,"Oct","Maryland",5
+"624",20,"Oct","Massachusetts",1
+"625",20,"Oct","Michigan",1
+"626",20,"Oct","Mississippi",2
+"627",20,"Oct","Missouri",1
+"628",20,"Oct","Nevada",1
+"629",20,"Oct","New Jersey",1
+"630",20,"Oct","New York",3
+"631",20,"Oct","North Carolina",1
+"632",20,"Oct","Ohio",1
+"633",20,"Oct","Pennsylvania",2
+"634",20,"Oct","South Carolina",3
+"635",20,"Oct","Tennessee",2
+"636",20,"Oct","Texas",3
+"637",20,"Oct","Virginia",1
+"638",20,"Oct","Washington",2
+"639",20,"Sep","Alabama",1
+"640",20,"Sep","Arkansas",5
+"641",20,"Sep","California",4
+"642",20,"Sep","Colorado",1
+"643",20,"Sep","Connecticut",1
+"644",20,"Sep","Florida",4
+"645",20,"Sep","Georgia",3
+"646",20,"Sep","Illinois",7
+"647",20,"Sep","Indiana",1
+"648",20,"Sep","Iowa",1
+"649",20,"Sep","Louisiana",5
+"650",20,"Sep","Maryland",3
+"651",20,"Sep","Michigan",2
+"652",20,"Sep","Minnesota",1
+"653",20,"Sep","Missouri",3
+"654",20,"Sep","New Jersey",3
+"655",20,"Sep","New York",4
+"656",20,"Sep","North Carolina",2
+"657",20,"Sep","Ohio",3
+"658",20,"Sep","Pennsylvania",7
+"659",20,"Sep","South Carolina",1
+"660",20,"Sep","Tennessee",3
+"661",20,"Sep","Texas",1
+"662",20,"Sep","Wisconsin",1
+"663",21,"Apr","Alabama",5
+"664",21,"Apr","Arkansas",1
+"665",21,"Apr","California",1
+"666",21,"Apr","Connecticut",1
+"667",21,"Apr","District of Columbia",2
+"668",21,"Apr","Florida",3
+"669",21,"Apr","Georgia",2
+"670",21,"Apr","Illinois",2
+"671",21,"Apr","Indiana",1
+"672",21,"Apr","Kansas",1
+"673",21,"Apr","Louisiana",6
+"674",21,"Apr","Maryland",2
+"675",21,"Apr","Michigan",4
+"676",21,"Apr","Missouri",2
+"677",21,"Apr","North Carolina",2
+"678",21,"Apr","Ohio",2
+"679",21,"Apr","Oregon",1
+"680",21,"Apr","South Carolina",1
+"681",21,"Apr","Tennessee",1
+"682",21,"Apr","Texas",6
+"683",21,"Apr","Virginia",1
+"684",21,"Apr","Washington",1
+"685",21,"Apr","Wisconsin",2
+"686",21,"Aug","Alabama",1
+"687",21,"Aug","California",3
+"688",21,"Aug","Colorado",1
+"689",21,"Aug","District of Columbia",1
+"690",21,"Aug","Illinois",13
+"691",21,"Aug","Indiana",2
+"692",21,"Aug","Louisiana",3
+"693",21,"Aug","Maryland",2
+"694",21,"Aug","Massachusetts",1
+"695",21,"Aug","Michigan",4
+"696",21,"Aug","Minnesota",1
+"697",21,"Aug","Mississippi",1
+"698",21,"Aug","Nevada",2
+"699",21,"Aug","New Jersey",1
+"700",21,"Aug","New York",5
+"701",21,"Aug","North Carolina",2
+"702",21,"Aug","Ohio",2
+"703",21,"Aug","Oregon",2
+"704",21,"Aug","Pennsylvania",3
+"705",21,"Aug","Rhode Island",1
+"706",21,"Aug","South Carolina",2
+"707",21,"Aug","Tennessee",2
+"708",21,"Aug","Texas",4
+"709",21,"Aug","Virginia",1
+"710",21,"Aug","West Virginia",1
+"711",21,"Aug","Wisconsin",1
+"712",21,"Feb","California",3
+"713",21,"Feb","Colorado",2
+"714",21,"Feb","Delaware",1
+"715",21,"Feb","Florida",2
+"716",21,"Feb","Georgia",2
+"717",21,"Feb","Illinois",2
+"718",21,"Feb","Indiana",2
+"719",21,"Feb","Louisiana",5
+"720",21,"Feb","Minnesota",1
+"721",21,"Feb","Mississippi",3
+"722",21,"Feb","Missouri",1
+"723",21,"Feb","New York",1
+"724",21,"Feb","North Carolina",3
+"725",21,"Feb","Ohio",1
+"726",21,"Feb","Oklahoma",1
+"727",21,"Feb","Pennsylvania",3
+"728",21,"Feb","South Carolina",1
+"729",21,"Feb","Tennessee",2
+"730",21,"Feb","Texas",3
+"731",21,"Feb","Washington",1
+"732",21,"Jan","Arizona",2
+"733",21,"Jan","Arkansas",1
+"734",21,"Jan","California",3
+"735",21,"Jan","District of Columbia",2
+"736",21,"Jan","Florida",5
+"737",21,"Jan","Illinois",3
+"738",21,"Jan","Indiana",1
+"739",21,"Jan","Iowa",1
+"740",21,"Jan","Kentucky",1
+"741",21,"Jan","Louisiana",2
+"742",21,"Jan","Michigan",1
+"743",21,"Jan","Nevada",1
+"744",21,"Jan","New York",1
+"745",21,"Jan","Oregon",1
+"746",21,"Jan","Pennsylvania",3
+"747",21,"Jan","Texas",4
+"748",21,"Jan","Virginia",1
+"749",21,"Jul","Alabama",1
+"750",21,"Jul","Arizona",1
+"751",21,"Jul","California",7
+"752",21,"Jul","Connecticut",1
+"753",21,"Jul","Delaware",1
+"754",21,"Jul","District of Columbia",2
+"755",21,"Jul","Florida",1
+"756",21,"Jul","Georgia",2
+"757",21,"Jul","Illinois",17
+"758",21,"Jul","Indiana",2
+"759",21,"Jul","Iowa",1
+"760",21,"Jul","Kentucky",1
+"761",21,"Jul","Maryland",1
+"762",21,"Jul","Massachusetts",2
+"763",21,"Jul","Michigan",3
+"764",21,"Jul","Missouri",2
+"765",21,"Jul","Nebraska",1
+"766",21,"Jul","Nevada",1
+"767",21,"Jul","New Hampshire",1
+"768",21,"Jul","New Jersey",2
+"769",21,"Jul","New York",3
+"770",21,"Jul","North Carolina",2
+"771",21,"Jul","Ohio",7
+"772",21,"Jul","Oregon",1
+"773",21,"Jul","Pennsylvania",6
+"774",21,"Jul","South Carolina",5
+"775",21,"Jul","Texas",9
+"776",21,"Jul","Virginia",2
+"777",21,"Jul","Washington",1
+"778",21,"Jun","Alabama",3
+"779",21,"Jun","Alaska",1
+"780",21,"Jun","Arkansas",1
+"781",21,"Jun","California",3
+"782",21,"Jun","Colorado",1
+"783",21,"Jun","Delaware",1
+"784",21,"Jun","District of Columbia",1
+"785",21,"Jun","Florida",5
+"786",21,"Jun","Georgia",2
+"787",21,"Jun","Illinois",12
+"788",21,"Jun","Indiana",2
+"789",21,"Jun","Kentucky",1
+"790",21,"Jun","Louisiana",3
+"791",21,"Jun","Maryland",1
+"792",21,"Jun","Michigan",3
+"793",21,"Jun","Minnesota",1
+"794",21,"Jun","Missouri",2
+"795",21,"Jun","New Jersey",3
+"796",21,"Jun","New York",3
+"797",21,"Jun","North Carolina",4
+"798",21,"Jun","Ohio",10
+"799",21,"Jun","Tennessee",3
+"800",21,"Jun","Texas",6
+"801",21,"Jun","Utah",1
+"802",21,"Jun","Virginia",2
+"803",21,"Jun","Washington",1
+"804",21,"Mar","Alabama",1
+"805",21,"Mar","Arizona",1
+"806",21,"Mar","California",4
+"807",21,"Mar","Colorado",1
+"808",21,"Mar","District of Columbia",2
+"809",21,"Mar","Florida",3
+"810",21,"Mar","Georgia",1
+"811",21,"Mar","Illinois",6
+"812",21,"Mar","Indiana",2
+"813",21,"Mar","Louisiana",1
+"814",21,"Mar","Maryland",1
+"815",21,"Mar","Michigan",1
+"816",21,"Mar","Mississippi",2
+"817",21,"Mar","New Mexico",1
+"818",21,"Mar","New York",1
+"819",21,"Mar","North Carolina",2
+"820",21,"Mar","Ohio",1
+"821",21,"Mar","Oregon",1
+"822",21,"Mar","Pennsylvania",4
+"823",21,"Mar","Tennessee",1
+"824",21,"Mar","Texas",5
+"825",21,"Mar","Virginia",3
+"826",21,"May","Alabama",3
+"827",21,"May","Arizona",1
+"828",21,"May","California",7
+"829",21,"May","Colorado",1
+"830",21,"May","Delaware",2
+"831",21,"May","District of Columbia",2
+"832",21,"May","Florida",3
+"833",21,"May","Georgia",5
+"834",21,"May","Illinois",6
+"835",21,"May","Indiana",2
+"836",21,"May","Louisiana",1
+"837",21,"May","Maryland",3
+"838",21,"May","Massachusetts",1
+"839",21,"May","Michigan",4
+"840",21,"May","Minnesota",2
+"841",21,"May","Missouri",3
+"842",21,"May","New Jersey",5
+"843",21,"May","New York",5
+"844",21,"May","North Carolina",1
+"845",21,"May","Ohio",5
+"846",21,"May","Pennsylvania",4
+"847",21,"May","Rhode Island",1
+"848",21,"May","South Carolina",2
+"849",21,"May","Texas",1
+"850",21,"May","Virginia",1
+"851",21,"May","Wisconsin",1
+"852",21,"Nov","Alabama",1
+"853",21,"Nov","California",3
+"854",21,"Nov","Florida",1
+"855",21,"Nov","Iowa",1
+"856",21,"Nov","New York",1
+"857",21,"Nov","Pennsylvania",1
+"858",21,"Nov","South Dakota",1
+"859",21,"Nov","Texas",2
+"860",21,"Nov","Virginia",1
+"861",21,"Nov","Wisconsin",1
+"862",21,"Oct","Alabama",2
+"863",21,"Oct","Arkansas",2
+"864",21,"Oct","California",4
+"865",21,"Oct","Colorado",4
+"866",21,"Oct","Delaware",1
+"867",21,"Oct","District of Columbia",2
+"868",21,"Oct","Florida",2
+"869",21,"Oct","Georgia",2
+"870",21,"Oct","Idaho",1
+"871",21,"Oct","Illinois",7
+"872",21,"Oct","Iowa",2
+"873",21,"Oct","Kentucky",1
+"874",21,"Oct","Louisiana",4
+"875",21,"Oct","Maryland",3
+"876",21,"Oct","Michigan",2
+"877",21,"Oct","Minnesota",3
+"878",21,"Oct","Mississippi",4
+"879",21,"Oct","Missouri",1
+"880",21,"Oct","Nevada",1
+"881",21,"Oct","New York",3
+"882",21,"Oct","Ohio",2
+"883",21,"Oct","Oklahoma",1
+"884",21,"Oct","South Carolina",3
+"885",21,"Oct","Tennessee",1
+"886",21,"Oct","Texas",7
+"887",21,"Oct","Washington",2
+"888",21,"Oct","Wisconsin",4
+"889",21,"Sep","Alabama",3
+"890",21,"Sep","California",4
+"891",21,"Sep","Delaware",1
+"892",21,"Sep","District of Columbia",2
+"893",21,"Sep","Florida",3
+"894",21,"Sep","Georgia",4
+"895",21,"Sep","Illinois",11
+"896",21,"Sep","Kansas",1
+"897",21,"Sep","Louisiana",3
+"898",21,"Sep","Maryland",1
+"899",21,"Sep","Michigan",1
+"900",21,"Sep","Minnesota",2
+"901",21,"Sep","Missouri",4
+"902",21,"Sep","New Jersey",1
+"903",21,"Sep","New York",8
+"904",21,"Sep","North Carolina",1
+"905",21,"Sep","Ohio",2
+"906",21,"Sep","Pennsylvania",3
+"907",21,"Sep","South Carolina",2
+"908",21,"Sep","Tennessee",3
+"909",21,"Sep","Texas",4
+"910",21,"Sep","Washington",1
+"911",21,"Sep","Wisconsin",1

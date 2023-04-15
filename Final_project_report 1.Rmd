@@ -1,0 +1,380 @@
+---
+title: "Report" 
+output: html_document
+---
+
+```{r message=FALSE, echo=FALSE,warning = FALSE}
+library(tidyverse)
+library(ggplot2)
+library(rvest)
+library(httr)
+library(ggalt)
+library(ggforce)
+library(plotly)
+library(ggpubr)
+library(gridExtra)
+library(leaflet)
+library(dplyr)
+
+```
+
+## Motivation
+ 
+This project is overall motivated by two gun violence incidents in 2021 in which two Chinese students  were killed brutally. As a team of Chinese, we feel grief-stricken for our compatriots’ death and it motivates us to question and investigate the safety issues when studying in the U.S as international students. Under this circumstance, our group members are inspired to study gun violence and explore the relationship between gun crime rate and Covid-19 outbreak.
+ 
+## Motivating sources <br>
+
+[_The Washington Post_: "2020 was the deadliest gun violence year in decades. So far, 2021 is worse."](https://www.washingtonpost.com/nation/2021/06/14/2021-gun-violence/) <br>
+[_The Washington Post_: “Shootings never stopped during the pandemic: 2020 was the deadliest gun violence year in decades”](https://www.washingtonpost.com/nation/2021/03/23/2020-shootings/) <br>
+[_Nydailynews_: “Surging COVID-19 cases threaten to send NYC and US economy into second tailspin”](https://www.nydailynews.com/coronavirus/ny-coronavirus-unemployment-pandemic-case-rate-20201112-u577rg47bjbhlgaqcgyjjj5xtq-story.html) <br>
+[_USNEWS_: “Suspect Charged in Death of University of Chicago Student”](https://www.usnews.com/news/us/articles/2021-11-12/slaying-of-chinese-student-in-chicago-spurs-call-for-action) <br> 
+ 
+## Questions
+
+The questions for this project are based on three datasets listed in the next section:
+
+1.What is the national and state change of the number of mass-shooting incidents in recent years? Which states have more mass-shooting incidents and reasons behind such differences between different states?
+
+2.What is the fluctuation of unemployment rate before and after the outbreak of  the epidemic? Whether the number of mass shooting incidents has a relationship with the unemployment rate?
+
+3.Is it possible to build a precise model to predict the number of mass-shooting in Illinois in 2022 with the data collected?
+
+## Data
+ 
+Gun Violence Archive – (https://www.gunviolencearchive.org)
+NYC OpenData – (https://opendata.cityofnewyork.us/)
+Bureau of Labor Statistics – (https://www.bls.gov/)
+
+### National Mass Shooting Dataset
+
+This dataset collects every mass-shooting incident that occurred from November 2017 to November 2021 in the US. According to Gun Violence Archive, definition of mass-shooting is that in one gun violence incident, there is a minimum of four victims shot, either injured or killed, not including any shooter who may also have been killed or injured in the incident.
+ 
+#### Variables: <br>
+* day <br>
+* month <br>
+* year <br>
+* state <br>
+* number_killed: number of killed in a mass shooting incident <br>
+* number_injuried: number of injuried in a mass shooting incident <br>
+* number_year_killed: total number of killed in a specific state  in a year <br>
+* number_year_injuried: total number of injuried in a specific state  in a year <br>
+ 
+#### Data cleaning:
+The data was first imported into R and we renamed some of the variables. Since the data for 2017 is too small, we decided to remove them and only keep the  data from January 2018 to  November 2021. In order to study the victims in mass-shooting from 2018 to 2021, we counted the number of killed and injured in different states every year and created two new variables.
+
+### NY Shooting Incidents Dataset
+
+List of every shooting incident that occurred in NYC during the current calendar year.
+This is a breakdown of every shooting incident that occurred in NYC during the current calendar year. This data is manually extracted every quarter and reviewed by the Office of Management Analysis and Planning before being posted on the NYPD website.
+Each record represents a shooting incident in NYC and includes information about the event, the location and time of occurrence. In addition, information related to suspect and victim demographics is also included. This data can be used by the public to explore the nature of police enforcement activity. Please refer to the attached data footnotes for additional information about this dataset.
+
+#### Variables: 
+* INCIDENT_KEY	<br>
+* OCCUR_DATE	<br>
+* Exact date of the shooting incident <br>
+* OCCUR_TIME	<br>
+* Exact time of the shooting incident <br>
+* BORO	 <br>
+* Borough where the shooting incident occurred <br>
+* PRECINCT	<br>
+* Precinct where the shooting incident occurred <br>
+* JURISDICTION_CODE:Jurisdiction where the shooting incident occurred. Jurisdiction codes 0(Patrol), 1(Transit) and 2(Housing) represent NYPD whilst codes 3 and more represent non NYPD jurisdictions <br>
+* LOCATION_DESC: Location of the shooting incident  <br>
+* STATISTICAL_MURDER_FLAG: Shooting resulted in the victim’s death which would be counted as a murder <br>
+* PERP_AGE_GROUP: Perpetrator’s age within a category <br>
+* PERP_SEX: Perpetrator’s sex description <br>
+* PERP_RACE: Perpetrator’s race description <br>
+* VIC_AGE_GROUP: Victim’s age within a category <br>
+* VIC_SEX: Victim’s sex description <br>
+* VIC_RACE: Victim’s race description <br>
+* X_COORD_CD:Midblock X-coordinate for New York State Plane Coordinate System, Long Island Zone, NAD 83, units feet (FIPS 3104) <br>
+* Y_COORD_CD: Midblock Y-coordinate for New York State Plane Coordinate System, Long * Island Zone, NAD 83, units feet (FIPS 3104) <br>
+* Latitude: Latitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326) <br>
+* Longitude: Longitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326) <br>
+
+
+#### Data cleaning:
+First, we combined two datasets of New York gun violence incidents in order for time consistency with the national mass shooting dataset from 2018 to 2021. Then we separate the occur- time into day, month and year. In order to get the change of gun violence incidents after covid-19, we again separate our dataframe into two small dataframe. one concludes the data during 2018-2019, means pre-covid, another concludes the data during 2020-2021, means during covid. In this way, we could see the gun violence incidents in each month of each year through visualizations and also see the changes with covid-19. 
+
+
+### Unemployment rate Dataset
+
+This dataset collects the unemployment rate of each state from 2017 to 2021, which contains the pre_Covid19 period and during_Covid19 period.
+ 
+#### Variables:
+* series_id: the number id of each state. <br>
+* year <br>
+* period: the number of month in a year <br>
+* label: the year and month of our unemployment rate <br>
+* value: the unemployment rate of each state <br>
+ 
+#### Data cleaning:
+First of all, in the face of this data set, the name of each state is not directly displayed. Instead, the numeric ID corresponding to each state is used. We first correspond to the digital ID of each state from the official website, and then change each digital ID to the corresponding state name in order to unify the variables with our other datasets. Secondly, the period variable is the month of the unemployment rate, which is made up of a capital M plus the number of the corresponding month. We unify them as the abbreviation of the month of the factor type. Next, we hope to study the relationship between the unemployment rate and the number of shootings. We combined the two data sets by state, year, and month so that we could see the unemployment rate and shooting numbers corresponding to a state in each month of each year through visualizations.
+
+## Visualization
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+gun_violence_state_df=
+read_csv("data/gun violence/mass shootings(all years).csv") %>% 
+  janitor::clean_names() %>% 
+  select(-incident_id,-address,-operations) %>%
+  separate(incident_date,into=c("day","month","year"),sep="-") %>% 
+  group_by(state,year) %>%
+  mutate(number_year_killed=sum(number_killed),number_year_injured=sum(number_injured),year=as.numeric(year)) %>% 
+  ungroup() %>% 
+  filter(year!="17") %>% 
+  mutate(year=year+2000) %>% 
+  select(-city_or_county)
+```
+
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+year_month_state_massshooting=
+  gun_violence_state_df %>%
+  group_by(year,month,state) %>% 
+  mutate(number_mass_shooting=n()) %>% 
+  group_by(year,month,state,number_mass_shooting) %>% 
+  summarise() %>% 
+  mutate(year_month=str_c(year,month,sep="")) %>% 
+  mutate(month=match(month,month.abb)) %>% 
+  group_by(year) %>% 
+  arrange(month) %>% 
+  filter(year_month!="2021Nov")
+
+
+year_month_state_massshooting %>% 
+  mutate(year_month=fct_inorder(year_month)) %>% 
+  group_by(year_month) %>% 
+  count() %>% 
+  rename(number_mass_shooting=n) %>% 
+  ggplot(aes(year_month,number_mass_shooting)) + theme_bw(base_size=15 ) +
+  geom_xspline(aes(group=1),color="lightblue",size=0.7) + geom_point(color="lightblue",size=1.5) +
+  geom_segment(aes(x = 25, y = 10, xend = 25, yend = 31) ,size=0.5,colour = "red",linetype="dashed") + 
+  geom_text(aes(x=25, y= 30, label = "first case of death in US " ), colour = "red", vjust = -2, hjust = 0.5, size = 3)  + 
+  labs(x = "Month Year ", y = "Mass Shooting", title = "National Mass Shooting in US ",caption="(Source:www.gunviolencearchive.org)") + theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=8),axis.title=element_text(size=10)) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1),plot.caption = element_text(size=7)) 
+```
+
+The plot above shows a fluctutation in national mass shooting number in US from January 2018 to October 2021. From the plot, we can reach two conclusions.First, there is a seasonal pattern in national mass shooting that in every year, basically, number of mass shooting will begin to increase from January and reach its peak in summer and then reduce to bottom. Second, 2020 saw a huge increase in mass shootings compared with previous years, and 2021 is trending a little lower. After data processing in R, there is nationally mass shootings jumped nearly 50% during a pandemic with crippling unemployment, violent protests and idle youth.
+
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+unemploy_gun <- read_csv("data/unemployment_gun.csv")
+UNRATE <- read_csv("data/unemployment rate/UNRATE.csv")
+unemploy_gun_IL = unemploy_gun %>% 
+  filter(state == c("Illinois")) %>%
+  mutate(time=fct_inorder(time)) %>% 
+  arrange(time) 
+
+UNRATE %>% 
+  ggplot(mapping = aes(x = DATE , y = UNRATE, group= 1)) + theme_bw()+
+  geom_line(color="red",size=1) +
+  ylab("Unemployment Rate")+
+  xlab("Time")+
+  labs(title = " Unemployment Rate in US from 2018 to 2021",caption="(Source:opendata.cityofnewyork.us/)")+
+ theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=11),axis.title=element_text(size=15)) + theme(plot.caption = element_text(size=7))
+```
+
+With the increase in shootings, we have paid more attention to shootings and became interested in what factors have affected the sharp increase in shootings. First of all, a set of data from major news newspapers enters our field of vision. Every day we can see reports of unemployment rate in the news. It is very interesting that the unemployment rate has been increasing since the outbreak of the new crown epidemic, which has the same trend as the increase in shootings. Therefore, we mapped the changes in the unemployment rate in the United States two years before and after the outbreak of the new crown. From this picture, we can see that two months after the outbreak of the new crown, the unemployment rate began to increase significantly, which is related to the self-quarantine policy that was just started. Later, society began to adapt to the epidemic, and there was a corresponding decline. However, because the epidemic caused structural damage to the economy, the unemployment rate has remained at a high level ever since.
+
+
+
+
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+mass_shooting_state=
+  gun_violence_state_df %>% 
+  group_by(state) %>%
+  count() %>% 
+  select(number_mass_shooting=n) %>% 
+  arrange(number_mass_shooting) %>% 
+  mutate(Number=number_mass_shooting)
+
+mass_shooting_state %>% 
+  ggplot(aes(x=fct_reorder(state,number_mass_shooting),y=number_mass_shooting,fill=Number)) + geom_bar(stat = "identity", colour = "black",position = "dodge") + theme_bw( ) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1))+ labs(y= "Mass Shooting", x = "State",title="Top States with highest \n number of Mass Shooting",caption="(Source:www.gunviolencearchive.org)") + theme( plot.title = element_text(colour = "black", face = "bold", 
+  size = 15, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=3)) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1,size=8),axis.text.y = element_text(size=8),axis.title=element_text(size=10),plot.caption = element_text(size=7)) 
+```
+
+We arrange 48 states in an ascending way according to the number of mass shooting from 2018 to 2021. As shown in the bar chart, top 8 states are Illinois, California, Texas, Florida, Pennsylvania, Louisiana, New York and Ohio respectively. As one of city in Illinois, Chicago Leads the nation in mass shootings, averaging about one per week.
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+plot_1 = unemploy_gun_IL %>% 
+  ggplot(mapping = aes(x = time , y = value, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Unemployment Rate")+
+  labs(title = " Unemployment Rate vs Number of \n Mass Shooting in Illinois")+
+  theme( plot.title = element_text(colour = "black", face = "bold", 
+  size = 13, vjust = 3, hjust = 0.5))
+
+plot_2 = unemploy_gun_IL %>%
+  ggplot(mapping = aes(x = time , y = number_mass_shooting, group= 1)) + 
+  geom_line()+theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Number_mass_shooting")
+
+fig=ggarrange(plot_1, plot_2,ncol = 1, nrow = 2)
+fig + theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=11),axis.title=element_text(size=15)) + theme(plot.caption = element_text(size=7)) +labs(caption="(Source:www.bls.gov/)")
+```
+
+We chose Minnesota for a more in-depth analysis. The top is the change in the unemployment rate in Minnesota, and the bottom is the change in the number of shootings. First of all, we can find that the number of shootings has obvious periodic changes, and the number of shootings in the summer is obviously high throughout the year. However, it can still be found that the peak after the epidemic has increased significantly, and the number of shootings during the same period has also increased significantly. At the same time, the unemployment rate has always been higher than the value of the unemployment rate under healthy economic conditions. Therefore, we infer that the two variables are still correlated.
+
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+historic_NYPD_df = read_csv("data/NYPD_Shooting_Incident_Data__Historic_.csv") %>%
+  separate('OCCUR_DATE', into=c("month","day","year"),sep = "/") %>%
+  filter(year>=2018)
+year_to_date_df = read_csv("data/NYPD_Shooting_Incident_Data__Year_To_Date_.csv")%>%
+  separate('OCCUR_DATE', into=c("month","day","year"),sep = "/")
+df = bind_rows(historic_NYPD_df,year_to_date_df) %>% 
+  janitor::clean_names()
+```
+
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+df_time = df %>%
+  group_by(year,month) %>%
+  summarise(count=n()) %>%
+  unite(month,year,month,sep = "/")
+df_time%>%
+  ggplot(aes(x=month, y=count,group=1))+ geom_xspline(color="purple",size=0.7) + geom_point(color="black",size=0.5) + theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1)) + 
+  labs(x = "Month Year", y = "Shooting Incidents", title = "Shooting Incidents in NYC",caption="(Source:opendata.cityofnewyork.us/)") + 
+  geom_segment(aes(x = 27, y = 10, xend = 27, yend = 330) ,colour = "black",linetype="dashed") + 
+  geom_text(aes(x=27, y= 310, label = "first case of death in NYC " ,size=2), colour = "red", vjust = -2.5, hjust = 0.5, size = 3)  + 
+  theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 18, vjust = 2.5, hjust = 0.3), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black")) +
+  theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=8),axis.title=element_text(size=10)) + theme(plot.caption = element_text(size=7)) 
+
+```
+
+this is a plot showing the number of shooting incidents in NYC from January 2018 to January 2021 in months. we can see a big increase in April 2020 which match the time when COVID-19 outbreak happened in NYC. We assume the COVID-19 outbreak caused the increase of unemployment which leads to a big increase in shooting incidents.
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+df_boro_before = df %>%
+  arrange(year,month,day)%>%
+  slice(1206:2205) %>%
+  group_by(boro) %>%
+  summarise(count=n(),
+            ratio=(count/1000)*100,
+            time="Before COVID")
+df_boro_after = df %>%
+  arrange(year,month,day)%>%
+  slice(2205:4355) %>%
+  group_by(boro) %>%
+  summarise(count=n(),
+            ratio=(count/2151)*100,
+            time="POST-COVID")
+df_boro=bind_rows(df_boro_before,df_boro_after)
+df_boro%>%
+  ggplot(aes(x=fct_reorder(boro,count),y=count,fill=time))+geom_bar(stat = "identity",position = "dodge")+ theme_bw() +
+  labs(x = "Boroughs", y = "Shooting Incidents", title = "Shooting Incidents in Five Boros of NYC",caption="(Source:opendata.cityofnewyork.us/)") + scale_fill_brewer(palette="Paired") +
+  theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=8),axis.title=element_text(size=10)) + theme(plot.caption = element_text(size=7)) 
+
+```
+
+this plot compares the shooting incidents in five boroughs in NYC. we set April 2020 as the outbreak time and before covid means 365 days before April 2020 and post covid means 365 days after April 2020. we can see from the plot that Broolyn has the most shooting incidents and Staten Island has the least. we can the after covid, all boroughs increases in shooting incidents numbers while the order remains the same.
+
+```{r echo=FALSE,message = FALSE,warning = FALSE}
+df_boro_time = df %>%
+  separate(occur_time,into = c("hour","minute","second"),sep = ":")%>%
+  mutate(hour=as.numeric(hour),
+    time_period = case_when(
+    hour>=0 & hour<6 ~ "MIDNIGHT",
+           hour>=6 & hour<12 ~ "MORNING",
+           hour>=12 & hour<18 ~ "AFTERNOON",
+           hour>=18 & hour<=23 ~ "EVENING"))%>%
+  group_by(time_period,boro) %>%
+  summarise(count=n(),
+            ratio=count/1000)
+df_boro_time %>%
+  ggplot(aes(x = time_period, y = boro, fill = count))+ geom_tile() +theme_bw() +
+  scale_fill_viridis_c(direction = -1)+
+  labs(x = "Time Period", y = " Boroughss", title = "Shooting Incidents Cross-compared \n with Time Period and Boros",caption="(opendata.cityofnewyork.us/)") +
+    theme( plot.title = element_text(colour = "black", face = "bold", 
+    size = 20, vjust = 3, hjust = 0.5), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "inches"),axis.text=element_text(colour="black",size=8),axis.title=element_text(size=10)) + theme(plot.caption = element_text(size=7)) 
+```
+
+This plot cross-compared time periods and five boroughs in New York City. We divide a day into four parts: 0 - 6 am is midnight, 6 - 12 am is morning, 12 - 18 pm is afternoon and 6 - 12 pm is evening. the darker the block is ,the more shooting incidents happen in this boroughs at this period of a day. As shown in the plot, we can find  that  Staten Island is the safest borough in which there are very few shooting incidents occurred here. 
+According to a news report, Staten Islanders are roughly three times more likely to own legal handguns than Brooklyn residents, and about four times more likely to own legal handguns than people in Manhattan and the Bronx. This could be one reason for explaining the higher safety of this borough that more people own a gun, more likely criminals need to bear a risk of death, which deter potential criminals and keep the community's safe.
+In terms of time, evening and midnight are more dangerous and in term of borough Bronx and Brooklyn have most shooting incidents. 
+
+## Formal statistical analyses
+
+For our analysis, we used the data from 2018-2021 in Illinois, which records the average number of mass-shooting in each month within the time period. We want to use those data to forecast the pattern of mass-shooting in 2022 in Illinois. 
+
+# Trend and seasonality exploration
+
+First, let's see the general trend and seasonality of our data between 2018-2021 and generate the time series. From the plot below, we can see a general increase in the number of mass-shooting throughout 2018-2021, and there seems to be a seasonality within each year.
+
+# Transformation and necessary tests
+Then, we  did a box-cox transformation to make the variance equal. Because the lambda we got is about 0.5, we decided to square root our series according to the common powers in box-cox transformation. and the new lambda we got is around 1. It is close to one, which means our series have an equal variance now.
+
+After that, we need to stationarize the series. Here, we used Augmented Dickey-Fuller Test to see if the series is stationary. The p-value is less than 0.01 which means our series is already stationary and doesn't need any further transformation.
+
+Meanwhile, we also performed a Ljung-Box test to check if the pattern we obtained from the series is because of randomness. The p-values are all less than 0.01, and we conclude that the correlation is not due to randomness.
+
+# Model Selection
+
+Next, we examined the ACF and PACF plot. 
+
+We could observe a sharp cut off at lag 1 in our PACF graph, and a gradual decrease in ACF plot, but the spikes become significant at lag 11-13. To figure out which ARIMA model to use, we decide to use the function auto.arima. It tells us that we should use ARIMA(0,0,1)(1,1,0)[12].  
+
+
+# Residual check
+
+After that, we checked the residual and the Ljung-box test results showed that the p-value is greater than 0.05, which means the residuals are white noise and follow normal distribution. Thus, we could conclude that our model is valid.
+
+
+
+# Forecast plot 
+
+Finally, we drew the forecast plot for the number of mass shooting in Illinois in 2022. From the plot, we could observe that in 2022, the number of mass shooting in Illinois is highly likely to continue increasing in general and it will follow the seasonal pattern that more mass shooting incidents may occur in the middle of the year.
+
+
+##  logistic regression 
+
+In the NYPD shooting incident database, a variable is called STATISTICAL_MURDER_FLAG which indicates if this shooting incident counted as a murder. It has a binary outcome "TRUE" or "FALSE". We will use logistic regression model to identify if a shooting can become a murder.
+
+First, we build the initial logistic regression model with all variables.
+Because some variables do not pass the significance test, we use the stepwise method to choose variables and then test the reduced model from the above result. PERP_RACE and PERP_RACE still not pass the significance test, now drop these two and run again. After that, we created dummy variables for BOROQUEENS,BOROSTATEN ISLAND,PERP_AGE_GROUP18-24 for further analysis. After another regression analysis, and our last model has a pretty decent significance. The variables left are BROOKLYN, MANHATTAN, PERP_25, PERP_45, PERP_65, VIC_AGE_GROUP, time_period. 
+
+
+# ROC plot
+A receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied.The ROC curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. The area under the curve can be used to quantitatively measure the effect of the model. The area under the ROC curve is denoted as AUC, so the larger AUC is, the better the model is. AUC for our model is 0.575 which is acceptable.
+
+# Conclusion
+  
+-Shooting incidents happen in BROOKLYN and MANHATTAN are less likely to be a murder.  
+-When perpetrators' age increases, the probability that this shooting incident to become a murder also increases. This conclusion holds for victims.  
+-Shooting incidents happen in the morning are more like to be a murder.  
+
+# Prediction
+For example, we have two shooting incidents now. We will use this model to predict which one has a higher probability to be a murder.  
+--A 36-year-old white female was killed by a 20-year-old black male at 10pm in Brooklyn.  
+--A 48-year-old Asian male was killed by a 54-year-old white male at 10am in Queens.  
+The outcome shows that the second one has a higher possibility to be a murder, which is pretty consistent with the conclusions we obtained above.
+
+*For detailed coding, plots, and numbers, please check our analysis page.*
+
+## Discussion
+
+Although we first believed that there should be a linear relationship between unemployment rate and number of mass-shooting, counterintuitively, our analysis and visualizations demonstrated that they are actually not related linearly. From our time series analysis, we observed an upward trend in the number of mass shootings and some seasonality in Illinois from 2018-2021. We then made a prediction for 2022 and noticed that it follows the general trend and seasonality from previous years, which means that the average number of mass shootings in Illinois will keep increasing in 2022 and most of them would happen in the middle of the year. Therefore, we would suggest the local police department institute additional security patrols and the government should take some measure to prevent aggressive individuals from obtaining weapons. 
+
+From the logistic regression analysis, we can conclude that shooting incidents happen in BROOKLYN and MANHATTAN are less likely to be a murder; when perpetrators' age increases, the probability that this shooting incident to become a murder also increases. This conclusion holds for victims; and shooting incidents happen in the morning are more like to be a murder. Because murder is hard to prevent, it is hard for us to suggest an effective measure to prevent a murder from happening. However, such kind of prediction could be used before interrogating the perpetrators. For example, from the analysis above, perpetrators aged above 45 are more likely to be a murderer. Therefore, we could use this prediction to make better assessment of whether they tried to make excuses during interrogation because a murder is considered to be more severe than other types of killing. 
+
+Our analysis might have some limitations. First, for our regression analysis, the variables we had from our dataset are limited, which means we are not able to consider other variables such as the income of the perpetrator and their education.
+Therefore, even though our prediction model is decent, it would not be significantly precise. In addition, in our time series analysis, we don't have enough data under the global pandemic. Thus, the prediction might not be as precise as we originally thought since the pandemic may continue to rage in 2022. 
+
+All in all, gun violence is always brutal. We probably need relavent policies to prevent it from prevailing. For instance, we could try to regulate the allocation of weapons by asking individuals to pass a psychological test. With more attention being paid on the issue of gun violence, we believe such serious condition could be alleviated some day in the future.
+
+
+
