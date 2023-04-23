@@ -251,30 +251,41 @@ $(document).ready(function () {
         <li>
   <a href="About.html">About</a>
 </li>
-<li>
-  <a href="exploratory-analysis.html">Exploratory Analyses</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exploratory Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="National-visualization-analysis.html">National Visualization Analysis</a>
+    </li>
+    <li>
+      <a href="NY-visualization-analysis.html">NY Visualization Analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="time_series_analysis.html">Time Series Analysis Model</a>
 </li>
-<li class="dropdown-header">Regression Model</li>
+<li>
+  <a href="Logistic_muder.html">Regression Model</a>
+</li>
+<li>
+  <a href="Final_project_report-1.html">Report</a>
+</li>
 <li>
   <a href="https://gun-violence-p8105.shinyapps.io/shiny/">Shiny</a>
 </li>
 <li>
-  <a>
-    <span class="fa fa-envelope fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a>
+  <a href="https://www.youtube.com/watch?v=9glfCfrTv-E">
     <span class="fa fa-youtube fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a>
+  <a href="https://github.com/zh2493/gun_violence.github.io">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -295,18 +306,30 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>library(readr)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ dplyr   1.0.7
-## ✓ tibble  3.1.4     ✓ stringr 1.4.0
-## ✓ tidyr   1.1.3     ✓ forcats 0.5.1
-## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre class="r"><code>library(readr)</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.1.3</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.1     v purrr     0.3.5
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.2     v tibble    3.2.1
+## v lubridate 1.9.2     v tidyr     1.2.1
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(ggalt)</code></pre>
+<pre><code>## Warning: package &#39;ggalt&#39; was built under R version 4.1.2</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
 ##   method                  from   
 ##   grid.draw.absoluteGrob  ggplot2
@@ -314,40 +337,42 @@ library(ggalt)</code></pre>
 ##   grobWidth.absoluteGrob  ggplot2
 ##   grobX.absoluteGrob      ggplot2
 ##   grobY.absoluteGrob      ggplot2</code></pre>
-<pre class="r"><code>library(ggforce)
-library(plotly)</code></pre>
+<pre class="r"><code>library(ggforce)</code></pre>
+<pre><code>## Warning: package &#39;ggforce&#39; was built under R version 4.1.3</code></pre>
+<pre class="r"><code>library(plotly)</code></pre>
 <pre><code>## 
-## Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## Attaching package: &#39;plotly&#39;
 ## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## The following object is masked from &#39;package:ggplot2&#39;:
 ## 
-##     filter</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+##     last_plot
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+## 
+## The following object is masked from &#39;package:graphics&#39;:
 ## 
 ##     layout</code></pre>
 <pre class="r"><code>library(ggpubr)</code></pre>
 <pre class="r"><code>unemploy_gun &lt;- read_csv(&quot;data/unemployment_gun.csv&quot;)</code></pre>
 <pre><code>## New names:
-## * `` -&gt; ...1</code></pre>
-<pre><code>## Rows: 911 Columns: 7</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (3): state, month, time
-## dbl (4): ...1, value, year, number_mass_shooting</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+## Rows: 911 Columns: 7
+## -- Column specification
+## -------------------------------------------------------- Delimiter: &quot;,&quot; chr
+## (3): state, month, time dbl (4): ...1, value, year, number_mass_shooting
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -&gt; `...1`</code></pre>
 <pre class="r"><code>UNRATE &lt;- read_csv(&quot;data/unemployment rate/UNRATE.csv&quot;)</code></pre>
-<pre><code>## Rows: 47 Columns: 2</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## Rows: 47 Columns: 2
+## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## dbl  (1): UNRATE
-## date (1): DATE</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+## date (1): DATE
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>unemploy_gun_IL = unemploy_gun %&gt;% 
   filter(state == c(&quot;Illinois&quot;)) %&gt;%
   mutate(time=fct_inorder(time)) %&gt;% 

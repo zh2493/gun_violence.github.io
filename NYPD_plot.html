@@ -250,28 +250,41 @@ $(document).ready(function () {
         <li>
   <a href="About.html">About</a>
 </li>
-<li class="dropdown-header">Exploratory Analyses</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exploratory Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="National-visualization-analysis.html">National Visualization Analysis</a>
+    </li>
+    <li>
+      <a href="NY-visualization-analysis.html">NY Visualization Analysis</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="time_series_analysis.html">Time Series Analysis Model</a>
 </li>
-<li class="dropdown-header">Regression Model</li>
+<li>
+  <a href="Logistic_muder.html">Regression Model</a>
+</li>
+<li>
+  <a href="Final_project_report-1.html">Report</a>
+</li>
 <li>
   <a href="https://gun-violence-p8105.shinyapps.io/shiny/">Shiny</a>
 </li>
 <li>
-  <a>
-    <span class="fa fa-envelope fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a>
+  <a href="https://www.youtube.com/watch?v=9glfCfrTv-E">
     <span class="fa fa-youtube fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a>
+  <a href="https://github.com/zh2493/gun_violence.github.io">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -297,28 +310,29 @@ $(document).ready(function () {
 <pre class="r"><code>historic_NYPD_df = read_csv(&quot;data/NYPD_Shooting_Incident_Data__Historic_.csv&quot;) %&gt;%
   separate(&#39;OCCUR_DATE&#39;, into=c(&quot;month&quot;,&quot;day&quot;,&quot;year&quot;),sep = &quot;/&quot;) %&gt;%
   filter(year&gt;=2018)</code></pre>
-<pre><code>## Rows: 23568 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## Rows: 23568 Columns: 19
+## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## chr  (10): OCCUR_DATE, BORO, LOCATION_DESC, PERP_AGE_GROUP, PERP_SEX, PERP_R...
 ## dbl   (5): INCIDENT_KEY, PRECINCT, JURISDICTION_CODE, Latitude, Longitude
+## num   (2): X_COORD_CD, Y_COORD_CD
 ## lgl   (1): STATISTICAL_MURDER_FLAG
-## time  (1): OCCUR_TIME</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+## time  (1): OCCUR_TIME
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>year_to_date_df = read_csv(&quot;data/NYPD_Shooting_Incident_Data__Year_To_Date_.csv&quot;)%&gt;%
   separate(&#39;OCCUR_DATE&#39;, into=c(&quot;month&quot;,&quot;day&quot;,&quot;year&quot;),sep = &quot;/&quot;)</code></pre>
-<pre><code>## Rows: 1531 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## Rows: 1531 Columns: 19
+## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## chr  (10): OCCUR_DATE, BORO, LOCATION_DESC, PERP_AGE_GROUP, PERP_SEX, PERP_R...
 ## dbl   (7): INCIDENT_KEY, PRECINCT, JURISDICTION_CODE, X_COORD_CD, Y_COORD_CD...
 ## lgl   (1): STATISTICAL_MURDER_FLAG
-## time  (1): OCCUR_TIME</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+## time  (1): OCCUR_TIME
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>df = bind_rows(historic_NYPD_df,year_to_date_df) %&gt;% 
   janitor::clean_names()</code></pre>
 </div>
@@ -329,7 +343,8 @@ $(document).ready(function () {
   group_by(year,month) %&gt;%
   summarise(count=n()) %&gt;%
   unite(month,year,month,sep = &quot;/&quot;)</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre class="r"><code>df_time%&gt;%
   ggplot(aes(x=month, y=count,group=1))+ geom_xspline(color=&quot;lightblue&quot;,size=0.7) + geom_point(color=&quot;lightblue&quot;,size=2) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust =1)) + 
@@ -339,6 +354,16 @@ $(document).ready(function () {
   theme(plot.background = element_rect(colour = &quot;lightblue&quot;, size = 3, linetype = 1, 
     fill = &quot;white&quot;), plot.title = element_text(colour = &quot;black&quot;, face = &quot;bold&quot;, 
     size = 12, vjust = 2.5, hjust = 0.3), plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), &quot;inches&quot;),axis.text=element_text(colour=&quot;black&quot;))</code></pre>
+<pre><code>## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+## i Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` in the `default_aes` field and elsewhere instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="NYPD_plot_files/figure-html/unnamed-chunk-1-1.png" width="90%" /></p>
 <pre class="r"><code>ggsave(&quot;NY_change.png&quot;)</code></pre>
 <pre><code>## Saving 6 x 3.6 in image</code></pre>
@@ -382,7 +407,8 @@ df_boro%&gt;%
   group_by(time_period,boro) %&gt;%
   summarise(count=n(),
             ratio=count/1000)</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;time_period&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;time_period&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre class="r"><code>df_boro_time %&gt;%
   ggplot(aes(x = time_period, y = boro, fill = count))+ geom_tile() +
   scale_fill_viridis_c(direction = -1)+

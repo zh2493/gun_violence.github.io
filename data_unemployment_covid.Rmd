@@ -11,7 +11,7 @@ library(rvest)
 library(httr)
 library(readxl)
 library(plyr)
-unemploy = read_csv("data_unemployment.csv")
+unemploy = read_csv("data/data_unemployment_raw.csv")
 clean_unemploy = 
   unemploy %>% 
   janitor::clean_names() %>% 

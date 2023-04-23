@@ -1,4 +1,4 @@
-name: "Yay internet!"  
+name: "Yay internet!"
 output_dir: "."
 navbar:
   title: "Home"
@@ -26,7 +26,6 @@ navbar:
 output:
   html_document:
     theme: journal
-  
     
     
     
