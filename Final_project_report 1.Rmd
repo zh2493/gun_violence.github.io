@@ -20,7 +20,7 @@ library(dplyr)
 
 ## Motivation
  
-This project is overall motivated by two gun violence incidents in 2021 in which two Chinese students  were killed brutally. As a team of Chinese, we feel grief-stricken for our compatriots’ death and it motivates us to question and investigate the safety issues when studying in the U.S as international students. Under this circumstance, our group members are inspired to study gun violence and explore the relationship between gun crime rate and Covid-19 outbreak.
+This project is overall motivated by two gun violence incidents in 2021 in which two Chinese students were killed brutally. As a team of Chinese, we feel grief-stricken for our compatriots’ death and it motivates us to question and investigate the safety issues when studying in the U.S as international students. Under this circumstance, our group members are inspired to study gun violence and explore the relationship between gun crime rate and Covid-19 outbreak.
  
 ## Motivating sources <br>
 
